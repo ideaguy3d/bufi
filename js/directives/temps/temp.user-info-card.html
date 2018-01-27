@@ -1,0 +1,25 @@
+<div class="j-user-card">
+	<h1 class="j-point" ng-click="collapse()">User Info Card</h1>
+	
+	<hr>
+	
+	<!-- Card Body -->
+	<div ng-hide="!!collapsed">
+		<p>Welcome <strong>{{user.name}}</strong></p>
+		<ja-address></ja-address>
+		
+		<br>
+		<p>Friends:</p>
+		<ul>
+			<li ng-repeat="friend in user.friends" class="j-friends">
+				{{friend}} &nbsp; <ja-remove-friend-btn remove-a-friend="removeFriend(friend)"></ja-remove-friend-btn>
+			</li>
+		</ul>
+		
+		<br>
+		
+		<h2 ng-show="!!user.rank">{{user.rank}} <i class="fa fa-check"></i></h2>
+		<a href="" ng-show="!user.rank" class="btn" ng-click="knightMe(user)">Knight Me</a>
+	</div>
+
+</div>
