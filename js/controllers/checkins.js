@@ -1,6 +1,4 @@
-/**
- * Created by Julius Alvarado on 11/22/2017.
- */
+
 myApp.controller('CheckInsController', ['$rootScope', '$scope', '$routeParams', '$firebaseObject',
     '$location', '$firebaseArray',
     function ($rootScope, $scope, $routeParams, $firebaseObject, $location, $firebaseArray) {

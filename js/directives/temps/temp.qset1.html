@@ -1,0 +1,47 @@
+<section id="lab916-quote">
+    <div class="intro {{ (activeQuestion > -1) ? 'inactive' : 'active' }}">
+        <h2>What stores do you dislike most:</h2>
+        <p>(select one or more)</p>
+        <button class="btn btn-warning" ng-click="activeQuestion = 0">Amazon</button>
+        <button class="btn btn-success" ng-click="activeQuestion = 0">Target</button>
+        <button class="btn btn-primary" ng-click="activeQuestion = 0">Walmart</button>
+        <button class="btn btn-info" ng-click="activeQuestion = 0">Macy's</button>
+    </div>
+
+    <div ng-repeat="question in myQuestions" class="question
+		{{ question.questionState === 'answered' ? 'answered' : 'unanswered' }}
+		{{ $index === activeQuestion ? 'active' : 'inactive' }}">
+
+        <!-- The Question -->
+        <p class="txt">{{ question.question }}</p>
+
+        <!-- Inner Loop Begins: -->
+        <div class="ans" ng-class="{
+			    'image': answer.image,
+			    'selected': isSelected($parent.$index, $index),
+			    'correct': isCorrect($parent.$index, $index)
+			   }" ng-style="{
+			    'background-image': 'url({{answer.image}})'
+			   }" ng-click="selectAnswer($parent.$index, $index)"
+             ng-repeat="answer in question.answers">
+            {{ answer.text }}
+        </div>
+
+        <!-- feedback: -->
+        <div class="feedback">
+            <!--
+             <p ng-show="question.correctness === 'correct'">
+                Correct! Good job ^_^
+            </p>
+            <p ng-show="question.correctness === 'incorrect'">
+                Wrong. Keep on studying. :/
+            </p>
+             -->
+
+            <!--<p>{{ question.feedback }}</p>-->
+            <div class="btn btn-sm btn-info" ng-click="selectContinue()">
+                <strong>Continue</strong>
+            </div>
+        </div>
+    </div>
+</section>

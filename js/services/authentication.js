@@ -57,7 +57,6 @@ myApp.factory('Authentication',
 
             }; //return
 
-
             return authapi;
 
         }]); //factory
