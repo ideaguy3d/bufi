@@ -1,0 +1,21 @@
+<!-- ctrl=RegistrationController -->
+<section ng-controller="mainDirCtrl" class="j-padding">
+    <p>Find <strong>Platonic</strong> Friends based on What you dislike ^_^</p>
+
+    <question-set-one></question-set-one>
+
+    <hr>
+    <div class="card">
+        <video id="vid" controls ja-space-bar-support ja-event-pause="handlePause()" preload="none" poster="http://media.w3.org/2010/05/sintel/poster.png" width="100%">
+            <source src="http://media.w3.org/2010/05/sintel/trailer_hd.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <hr>
+    <h1>User Cards</h1>
+    <ja-user-info-card user="user1" collapsed="false"></ja-user-info-card>
+
+    <ja-user-info-card user="user2" collapsed="true"></ja-user-info-card>
+
+    <ja-user-info-card user="user3" collapsed="false"></ja-user-info-card>
+</section>

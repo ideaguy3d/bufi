@@ -1,4 +1,5 @@
-<section id="lab916-quote">
+<section id="bf-quote">
+    <!-- Intro slide
     <div class="intro {{ (activeQuestion > -1) ? 'inactive' : 'active' }}">
         <h2>What stores do you dislike most:</h2>
         <p>(select one or more)</p>
@@ -7,24 +8,26 @@
         <button class="btn btn-primary" ng-click="activeQuestion = 0">Walmart</button>
         <button class="btn btn-info" ng-click="activeQuestion = 0">Macy's</button>
     </div>
+    -->
 
+    <!-- data driven slides -->
     <div ng-repeat="question in myQuestions" class="question
 		{{ question.questionState === 'answered' ? 'answered' : 'unanswered' }}
 		{{ $index === activeQuestion ? 'active' : 'inactive' }}">
 
         <!-- The Question -->
-        <p class="txt">{{ question.question }}</p>
+        <h3 class="q-txt">{{ question.question }}</h3>
 
         <!-- Inner Loop Begins: -->
-        <div class="ans" ng-class="{
-			    'image': answer.image,
-			    'selected': isSelected($parent.$index, $index),
-			    'correct': isCorrect($parent.$index, $index)
-			   }" ng-style="{
-			    'background-image': 'url({{answer.image}})'
-			   }" ng-click="selectAnswer($parent.$index, $index)"
-             ng-repeat="answer in question.answers">
-            {{ answer.text }}
+        <div class="bf-ans" ng-class="{
+                    'image': answer.image,
+                    'selected': isSelected($parent.$index, $index),
+                    'correct': isCorrect($parent.$index, $index)
+			     }" ng-style="{'background-image': 'url({{answer.image}})'}"
+                ng-click="selectAnswer($parent.$index, $index)"
+                ng-repeat="answer in question.answers">
+
+            <p class="bf-ans-para">{{ answer.text }}</p>
         </div>
 
         <!-- feedback: -->

@@ -3,7 +3,7 @@ myApp.controller('RegistrationController',
         function ($scope, Authentication, $location) {
             // $scope.message = "";
             $scope.user = {};
-            $scope.regCtrlTitle = "From RegistrationController";
+
             $scope.login = function () {
                 Authentication.login($scope.user);
             };

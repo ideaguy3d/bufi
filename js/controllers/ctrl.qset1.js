@@ -1,63 +1,102 @@
-(function(){
+(function () {
     "use strict";
 
-    angular.module('myApp').
-        controller("QuestionSetOneCtrl", [ "$scope", "jBufiDataSer", QuestionSetOneCtrlClass]);
+    angular.module('myApp').controller("QuestionSetOneCtrl", ["$rootScope", "$scope",
+        "$location","jBufiDataSer", "$firebaseAuth", "$firebaseArray", QuestionSetOneCtrlClass]);
 
-    function QuestionSetOneCtrlClass($scope, jBufiDataSer) {
+    function QuestionSetOneCtrlClass($rootScope, $scope, $location, jBufiDataSer,  $firebaseAuth, $firebaseArray) {
         var vm = this;
         vm.message = "QuestionSetOneCtrl wired up!";
 
-        $scope.introMessage = 'Test your knowledge';
+        var ref = firebase.database().ref();
+        var auth = $firebaseAuth();
+
         $scope.score = 0;
         $scope.activeQuestion = -1;
         $scope.activeQuestionAnswered = 0;
         $scope.percentScore = 0;
 
-        $scope.selectAnswer = function (indexQuestion, indexAnswer) {
-            var questionState = $scope.myQuestions[indexQuestion].questionState;
+        setActiveQuestion();
+        function setActiveQuestion() {
+            $scope.activeQuestion = 0;
+        }
 
-            if (questionState !== 'answered') { // .questionState is falsey because user has yet to click on an answer
-                $scope.myQuestions[indexQuestion].selectedAnswer = indexAnswer;
-                var correctAnswer = $scope.myQuestions[indexQuestion].correct;
-                $scope.myQuestions[indexQuestion].correctAnswer = correctAnswer;
+        auth.$onAuthStateChanged(function (authUser) {
+            var matchesRef = ref.child('users').child(authUser.uid).child('dislikes');
+            var matchesInfo = $firebaseArray(matchesRef);
+            $scope.meetings = matchesInfo;
+            $scope.allUsers = $firebaseArray(ref.child('users'));
 
-                if (indexAnswer === correctAnswer) {
-                    $scope.myQuestions[indexQuestion].correctness = 'correct';
-                    $scope.score += 1;
-                } else {
-                    $scope.myQuestions[indexQuestion].correctness = 'incorrect';
-                }
-                // now that user has clicked on an answer I now set .questionState
-                $scope.myQuestions[indexQuestion].questionState = 'answered';
+            console.log("jha - all users @idx2 =");
+            console.log($scope.allUsers);
+
+            for (var i = 0; i < $scope.allUsers.length; i++) {
+                var user = $scope.allUsers[i];
+                console.log("All the users are:");
+                console.log(user.email);
+                console.log(user.dislikes);
             }
 
-            $scope.percentScore = (100 * ($scope.score / $scope.totalQuestions))
-                .toFixed(2);
-        };
+            $scope.selectAnswer = function (indexQuestion, indexAnswer) {
 
-        $scope.isSelected = function (qIndex, aIndex) {
-            return $scope.myQuestions[qIndex].selectedAnswer === aIndex;
-        };
+                if(!$rootScope.currentUser) {
+                    $location.url("/register");
+                }
 
-        $scope.isCorrect = function (qIndex, aIndex) {
-            return $scope.myQuestions[qIndex].correctAnswer === aIndex;
-        };
+                matchesInfo.$add({
+                    question: $scope.myQuestions[indexQuestion].question,
+                    answer: $scope.myQuestions[indexQuestion].answers[indexAnswer].text
+                });
 
-        $scope.selectContinue = function () {
-            return $scope.activeQuestion += 1;
-        };
+                var questionState = $scope.myQuestions[indexQuestion].questionState;
 
-        $scope.createShareLinks = function (percent) {
-            var url = 'http://php1.julius3d.com';
-            var emailLink = '<a href="mailto:?subject=Quiz Score.&amp;body=Beat my ' + percent +
-                '% quiz score at ' + url + ' studios." class="btn btn-sm btn-warning email">Email</a>';
-            var tweetLink = '<a href="http://twitter.com/share?text=I scored ' + percent + ' on my AngularJS quiz. ' +
-                'Beat my score at &hashtags=ngQuiz&url=' + url + '" target="_blank" class="btn btn-sm btn-info twitter">Tweet</a>';
+                if (questionState !== 'answered') { // .questionState is falsey because user has yet to click on an answer
+                    $scope.myQuestions[indexQuestion].selectedAnswer = indexAnswer;
+                    var correctAnswer = $scope.myQuestions[indexQuestion].correct;
+                    $scope.myQuestions[indexQuestion].correctAnswer = correctAnswer;
 
-            var newMarkup = emailLink + tweetLink;
-            return $sce.trustAsHtml(newMarkup);
-        };
+                    if (indexAnswer === correctAnswer) {
+                        $scope.myQuestions[indexQuestion].correctness = 'correct';
+                        $scope.score += 1;
+                    } else {
+                        $scope.myQuestions[indexQuestion].correctness = 'incorrect';
+                    }
+                    // now that user has clicked on an answer I now set .questionState
+                    $scope.myQuestions[indexQuestion].questionState = 'answered';
+                }
+
+                $scope.percentScore = (100 * ($scope.score / $scope.totalQuestions))
+                    .toFixed(2);
+            };
+
+            $scope.isSelected = function (qIndex, aIndex) {
+                return $scope.myQuestions[qIndex].selectedAnswer === aIndex;
+            };
+
+            $scope.isCorrect = function (qIndex, aIndex) {
+                return $scope.myQuestions[qIndex].correctAnswer === aIndex;
+            };
+
+            $scope.selectContinue = function () {
+                return $scope.activeQuestion += 1;
+            };
+
+            $scope.createShareLinks = function (percent) {
+                var url = 'http://php1.julius3d.com';
+                var emailLink = '<a href="mailto:?subject=Quiz Score.&amp;body=Beat my ' + percent +
+                    '% quiz score at ' + url + ' studios." class="btn btn-sm btn-warning email">Email</a>';
+                var tweetLink = '<a href="http://twitter.com/share?text=I scored ' + percent + ' on my AngularJS quiz. ' +
+                    'Beat my score at &hashtags=ngQuiz&url=' + url + '" target="_blank" class="btn btn-sm btn-info twitter">Tweet</a>';
+
+                var newMarkup = emailLink + tweetLink;
+                return $sce.trustAsHtml(newMarkup);
+            };
+        });
+
+
+
+
+
 
         activate();
 

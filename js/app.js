@@ -42,9 +42,9 @@ myApp.config(['$routeProvider', function ($routeProvider) {
             templateUrl: 'views/checkinslist.html',
             controller: 'CheckInsController'
         })
-        .when('/meetings', {
-            templateUrl: 'views/meetings.html',
-            controller: 'MeetingsController'
+        .when('/matches', {
+            templateUrl: 'views/view.matches.html',
+            controller: 'MatchesController'
         })
         .otherwise({
             redirectTo: '/'

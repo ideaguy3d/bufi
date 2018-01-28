@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no">
 	
 	<!-- design stuff -->
-	<link href='https://fonts.googleapis.com/css?family=Lato:400,100,700,900' rel='stylesheet' type='text/css'>
+	<!--<link href='https://fonts.googleapis.com/css?family=Lato:400,100,700,900' rel='stylesheet' type='text/css'>-->
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/julius.css">
@@ -35,18 +35,19 @@
 	
 	<!-- Custom JavaScript -->
 	<script src="js/app.js"></script>
-	<script src="js/services/authentication.js"></script>
-	<script src="js/controllers/registration.js"></script>
-	<script src="js/controllers/success.js"></script>
-	<script src="js/controllers/meetings.js"></script>
-	<script src="js/controllers/checkins.js"></script>
 
+	<script src="js/services/ser.authentication.js"></script>
+    <script src="js/services/ser.bufi.data.js"></script>
+
+	<script src="js/controllers/ctrl.registration.js"></script>
+	<script src="js/controllers/ctrl.success.js"></script>
+	<script src="js/controllers/ctrl.matches.js"></script>
+	<script src="js/controllers/ctrl.checkins.js"></script>
 	<script src="js/controllers/ctrl.mainDirCtrl.js"></script>
+    <script src="js/controllers/ctrl.qset1.js"></script>
+
 	<script src="js/directives/dir.user-info-card.js"></script>
 	<script src="js/directives/dir.spacebar-support.js"></script>
-
-    <script src="js/services/ser.bufi.data.js"></script>
-    <script src="js/controllers/ctrl.qset1.js"></script>
     <script src="js/directives/dir.qset1.js"></script>
 
     <script src=""></script>
@@ -68,12 +69,9 @@
 	<main class="cf" ng-view></main>
 </div>
 
+<br><br>
 
-
-<br>
-<hr>
-<br>
-<footer class="j-text-center">&nbsp; www.julius3d.com</footer>
+<footer class="j-text-center">www.julius3d.com</footer>
 
 </body>
 </html>

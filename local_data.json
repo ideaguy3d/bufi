@@ -1,6 +1,6 @@
 [
   {
-    "question": "What music do you dislike most?",
+    "question": "What music do you DISlike most?",
     "answers": [
       {"id": 0, "text": "country music"},
       {"id": 1, "text": "classical"},
@@ -8,18 +8,29 @@
       {"id": 3, "text": "rock"}
     ],
     "correct": 0,
-    "feedback": "Lab916 are specialist in this service"
+    "feedback": "Julius3D.com is a specialist in this service"
   },
   {
-    "question" : "How much do you hate NOT wearing make up? ",
+    "question" : "What bothers you most?",
     "answers"  : [
-      {"id"  : 0, "text" : "1"},
-      {"id"  : 1, "text" : "2"},
-      {"id"  : 2, "text" : "3"},
-      {"id"  : 3, "text" : "4"},
-      {"id"  : 4, "text" : "5"}
+      {"id"  : 0, "text" : "NOT wearing Make up"},
+      {"id"  : 1, "text" : "People chewing with their mouth open."},
+      {"id"  : 2, "text" : "Missing a workout."},
+      {"id"  : 3, "text" : "NOT being around your awesome dog."}
     ],
     "correct"  : 4,
-    "feedback" : "Lab916 are specialist in this service"
+    "feedback" : "Julius3D.com is a specialist in this service"
+  },
+  {
+    "question" : "Which JavaScript Framework is the worst?",
+    "answers"  : [
+      {"id"  : 0, "text" : "Angular 2.x"},
+      {"id"  : 1, "text" : "AngularJS"},
+      {"id"  : 2, "text" : "React"},
+      {"id"  : 3, "text" : "Elm"},
+      {"id"  : 4, "text" : "Ember"}
+    ],
+    "correct"  : 4,
+    "feedback" : "Julius3D.com is a specialist in this service"
   }
 ]
