@@ -42,9 +42,15 @@
              -->
 
             <!--<p>{{ question.feedback }}</p>-->
-            <div class="btn btn-sm btn-info" ng-click="selectContinue()">
+            <div ng-show="question.question !== 'Which JavaScript Framework is the worst?'" class="btn btn-sm btn-info"
+                 ng-click="selectContinue()">
                 <strong>Continue</strong>
             </div>
+            <div ng-show="question.question === 'Which JavaScript Framework is the worst?'" class="btn btn-sm btn-info"
+                 ng-click="seeMatches()">
+                <strong>See Matches</strong>
+            </div>
+            <p class="q-txt"><strong>Most Disliked: </strong><small>{{userAnswer}}</small></p>
         </div>
     </div>
 </section>

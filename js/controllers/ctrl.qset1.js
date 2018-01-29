@@ -22,31 +22,43 @@
         }
 
         auth.$onAuthStateChanged(function (authUser) {
-            var matchesRef = ref.child('users').child(authUser.uid).child('dislikes');
-            var matchesInfo = $firebaseArray(matchesRef);
-            $scope.meetings = matchesInfo;
-            $scope.allUsers = $firebaseArray(ref.child('users'));
 
-            console.log("jha - all users @idx2 =");
-            console.log($scope.allUsers);
+            if(authUser) {
 
-            for (var i = 0; i < $scope.allUsers.length; i++) {
-                var user = $scope.allUsers[i];
-                console.log("All the users are:");
-                console.log(user.email);
-                console.log(user.dislikes);
+                var matchesRef = ref.child('users').child(authUser.uid).child('dislikes');
+                var matchesInfo = $firebaseArray(matchesRef);
+                $scope.meetings = matchesInfo;
+                var allUsers;
+
+                $firebaseArray(ref.child('users')).$loaded().then(function (res) {
+                    var allUsersArray = [];
+                    console.log("jha - res = ");
+                    console.log(res.length);
+                    for (var i = 0; i < res.length; i++) {
+                        allUsersArray[i] = res[i];
+                    }
+                    allUsers = allUsersArray;
+                });
+
+                $scope.seeMatches = function () {
+                    $location.url("/matches");
+                    $rootScope.matchesAlgo = "Sorry, I didn't complete this algorithm :'( ";
+                };
             }
 
             $scope.selectAnswer = function (indexQuestion, indexAnswer) {
-
                 if(!$rootScope.currentUser) {
                     $location.url("/register");
                 }
 
-                matchesInfo.$add({
-                    question: $scope.myQuestions[indexQuestion].question,
-                    answer: $scope.myQuestions[indexQuestion].answers[indexAnswer].text
-                });
+                $scope.userAnswer = $scope.myQuestions[indexQuestion].answers[indexAnswer].text;
+
+                if(matchesInfo) {
+                    matchesInfo.$add({
+                        question: $scope.myQuestions[indexQuestion].question,
+                        answer: $scope.myQuestions[indexQuestion].answers[indexAnswer].text
+                    });
+                }
 
                 var questionState = $scope.myQuestions[indexQuestion].questionState;
 
@@ -81,20 +93,18 @@
                 return $scope.activeQuestion += 1;
             };
 
-            $scope.createShareLinks = function (percent) {
-                var url = 'http://php1.julius3d.com';
-                var emailLink = '<a href="mailto:?subject=Quiz Score.&amp;body=Beat my ' + percent +
-                    '% quiz score at ' + url + ' studios." class="btn btn-sm btn-warning email">Email</a>';
-                var tweetLink = '<a href="http://twitter.com/share?text=I scored ' + percent + ' on my AngularJS quiz. ' +
-                    'Beat my score at &hashtags=ngQuiz&url=' + url + '" target="_blank" class="btn btn-sm btn-info twitter">Tweet</a>';
-
-                var newMarkup = emailLink + tweetLink;
-                return $sce.trustAsHtml(newMarkup);
-            };
         });
 
+        $scope.createShareLinks = function (percent) {
+            var url = 'http://php1.julius3d.com';
+            var emailLink = '<a href="mailto:?subject=Quiz Score.&amp;body=Beat my ' + percent +
+                '% quiz score at ' + url + ' studios." class="btn btn-sm btn-warning email">Email</a>';
+            var tweetLink = '<a href="http://twitter.com/share?text=I scored ' + percent + ' on my AngularJS quiz. ' +
+                'Beat my score at &hashtags=ngQuiz&url=' + url + '" target="_blank" class="btn btn-sm btn-info twitter">Tweet</a>';
 
-
+            var newMarkup = emailLink + tweetLink;
+            return $sce.trustAsHtml(newMarkup);
+        };
 
 
 

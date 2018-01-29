@@ -124,14 +124,13 @@ body  {
 
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Lato', serif;
+    font-family: 'Lato', sans-serif;
     font-weight: 100;
-    text-shadow: 1px 1px rgba(255,255,255,1);
 }
 
 a {
     color: #2D8BCF;
-    font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
+    font-family: Lato, sans-serif;
 }
 
 header {
