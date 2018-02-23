@@ -2,9 +2,11 @@
 html {
     box-sizing: border-box;
 }
+
 *, *:before, *:after {
     box-sizing: inherit;
 }
+
 /* Reset Styles */
 
 html, body, div, span, applet, object, iframe,
@@ -25,45 +27,54 @@ time, mark, audio, video {
     border: 0;
     font: inherit;
     font-size: 100%;
-    vertical-align: baseline; }
+    vertical-align: baseline;
+}
 
 html {
-    line-height: 1; }
+    line-height: 1;
+}
 
 ol, ul {
-    list-style: none; }
+    list-style: none;
+}
 
 table {
     border-collapse: collapse;
-    border-spacing: 0; }
+    border-spacing: 0;
+}
 
 caption, th, td {
     text-align: left;
     font-weight: normal;
-    vertical-align: middle; }
+    vertical-align: middle;
+}
 
 q, blockquote {
-    quotes: none; }
+    quotes: none;
+}
 
 q:before, q:after, blockquote:before, blockquote:after {
     content: "";
-    content: none; }
+    content: none;
+}
 
 a img {
-    border: none; }
+    border: none;
+}
 
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
-    display: block; }
+    display: block;
+}
 
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    box-sizing: border-box; }
+    box-sizing: border-box;
+}
 
 strong {
     font-weight: bolder;
 }
-
 
 /* Base Styles */
 
@@ -83,7 +94,7 @@ html {
     height: auto;
 }
 
-body  {
+body {
     font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
     font-size: 1rem;
     color: #555459;
@@ -111,7 +122,7 @@ body  {
     opacity: .95;
     border-radius: 4px;
     border: 1px solid #e8e8e8;
-    box-shadow: 0 1px 0 rgba(0,0,0,.25);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, .25);
 }
 
 @media all and (max-width: 400px) {
@@ -119,9 +130,6 @@ body  {
         width: 100%;
     }
 }
-
-
-
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Lato', sans-serif;
@@ -137,16 +145,16 @@ header {
     margin-bottom: 20px;
 }
 
-h1{
+h1 {
     font-size: 2.2rem;
     font-weight: 400;
     line-height: 100%;
     margin-bottom: 10px;
     padding-top: 10px;
-    font-family: Lato,appleLogo,sans-serif;
+    font-family: Lato, appleLogo, sans-serif;
 }
 
-h2{
+h2 {
     font-weight: 400;
     font-size: 1.5rem;
     line-height: 90%;
@@ -154,7 +162,7 @@ h2{
     margin-top: 10px;
 }
 
-h3{
+h3 {
     margin-top: 0;
     line-height: 110%;
     margin-bottom: 5px;
@@ -184,7 +192,6 @@ input {
 input[type=radio] {
     width: auto;
 }
-
 
 .ng-enter.ng-enter-active,
 .ng-leave {
@@ -258,20 +265,44 @@ strong {
     user-select: none;
 }
 
+.btn .btn-left {
+    float: left;
+}
 
-.btn .btn-left { float: left; }
-.btn .btn-right { float: right; }
+.btn .btn-right {
+    float: right;
+}
+
 .btn:focus, .btn:hover {
     background-color: #DC322F;
     outline: none;
 }
 
-.btn-list { background-image: url(../images/icons/icon_list.png); }
-.btn-checkin { background-color: #859835; background-image: url(../images/icons/icon_checkmark.png); }
-.btn-delete { background-color: #C94C24; background-image: url(../images/icons/icon_trash.png); }
-.btn-love { background-image: url(../images/icons/icon_heart.png); }
-.btn-email { background-image: url(../images/icons/icon_email.png); }
-.btn-meeting { background-image:  url(../images/icons/icon_meeting.png); }
+.btn-list {
+    background-image: url(../images/icons/icon_list.png);
+}
+
+.btn-checkin {
+    background-color: #859835;
+    background-image: url(../images/icons/icon_checkmark.png);
+}
+
+.btn-delete {
+    background-color: #C94C24;
+    background-image: url(../images/icons/icon_trash.png);
+}
+
+.btn-love {
+    background-image: url(../images/icons/icon_heart.png);
+}
+
+.btn-email {
+    background-image: url(../images/icons/icon_email.png);
+}
+
+.btn-meeting {
+    background-image: url(../images/icons/icon_meeting.png);
+}
 
 .btn-pick {
     background: #2D8BCF url(../images/icons/icon_dice.png) 5px center no-repeat;
@@ -282,7 +313,7 @@ strong {
 }
 
 .btn-reset {
-    background: #CB4B19 url(../images/icons/icon_reset.png)  5px center no-repeat;
+    background: #CB4B19 url(../images/icons/icon_reset.png) 5px center no-repeat;
     background-size: 20px 20px;
     padding: 5px 5px 5px 50px;
 }
@@ -330,8 +361,8 @@ fieldset {
     font-size: 1rem;
     padding: 10px 0 10px 15px;
     color: #475B62;
-    background: rgba(255,255,255,0.4);
-    border: 1px solid rgba(0,0,0,0.3);
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 .search input[type="text"] {
@@ -427,7 +458,6 @@ fieldset {
     width: 80%;
 }
 
-
 .userlist li.expanded .btn-love {
     background-color: #C61C6F;
 }
@@ -450,13 +480,13 @@ fieldset {
         width: 100%;
     }
 
-    .userlist  .info  {
+    .userlist .info {
         width: 70%;
     }
 }
 
 ul.awardslist {
-    margin-top:5px;
+    margin-top: 5px;
 }
 
 ul.awardslist li {
@@ -478,7 +508,7 @@ ul.awardslist li .btn-delete {
     background-color: transparent;
     background-size: 15px 15px;
     background-position: center 40%;
-    margin:0;
+    margin: 0;
     border: none;
 }
 
@@ -489,7 +519,7 @@ ul.awardslist li .award {
 nav {
     width: 100%;
     background: #fff;
-    box-shadow: 0 1px 1px rgba(0,0,0,.1);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
 }
 
 .branding {
@@ -509,7 +539,6 @@ nav {
 .branding a:hover {
     color: none;
 }
-
 
 nav ul {
     width: 60%;
@@ -561,11 +590,11 @@ nav li a:hover {
 }
 
 .addmeeting {
-    width:100%;
+    width: 100%;
 }
 
 .addmeeting .inputwrapper {
-    margin-right:80px;
+    margin-right: 80px;
 }
 
 .addmeeting .inputwrapper input {
@@ -594,7 +623,6 @@ nav li a:hover {
     border-radius: 4px;
     border: 1px solid #C5C5C5;
 
-
 }
 
 .meetings .meeting .btn {
@@ -607,7 +635,7 @@ nav li a:hover {
     vertical-align: bottom;
 }
 
-.meetings .meeting .text a{
+.meetings .meeting .text a {
     text-decoration: none;
 }
 
@@ -666,22 +694,32 @@ nav li a:hover {
     background-color: #777;
     border-radius: 10px;
 }
+
 .badge:empty {
     display: none;
 }
 
-.checkinslist { margin-top: 20px; }
-.checkinslist h1 { color: #2D8BCF; }
+.checkinslist {
+    margin-top: 20px;
+}
+
+.checkinslist h1 {
+    color: #2D8BCF;
+}
+
 .checkin h2 {
     margin: 0;
     padding: 0;
 }
+
 .checkin .btn {
     padding: 0;
     margin: 0 3px;
 }
 
-.checkinslist h3 { color: #657B83; }
+.checkinslist h3 {
+    color: #657B83;
+}
 
 input.ng-invalid.ng-touched {
     border: 1px solid #DA3637;
@@ -700,8 +738,7 @@ input.ng-valid.ng-touched {
     padding-bottom: 10px;
 }
 
-.message
-{
+.message {
     color: indianred;
 }
 

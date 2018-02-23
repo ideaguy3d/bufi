@@ -4,7 +4,7 @@ myApp.factory('Authentication',
 
             var ref = firebase.database().ref();
             var auth = $firebaseAuth();
-            var authapi;
+            var authapi = {};
 
             auth.$onAuthStateChanged(function (authUser) {
                 console.log("jha - there was a change to auth state...");
@@ -54,9 +54,7 @@ myApp.factory('Authentication',
                         $rootScope.message = error.message;
                     }); //createUserWithEmailAndPassword
                 } //register
-
             }; //return
 
             return authapi;
-
         }]); //factory

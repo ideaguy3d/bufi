@@ -1,56 +1,45 @@
+<!-- ctrl=QuestionSetOneCtrl -->
 <section id="bf-quote">
-    <!-- Intro slide
-    <div class="intro {{ (activeQuestion > -1) ? 'inactive' : 'active' }}">
-        <h2>What stores do you dislike most:</h2>
-        <p>(select one or more)</p>
-        <button class="btn btn-warning" ng-click="activeQuestion = 0">Amazon</button>
-        <button class="btn btn-success" ng-click="activeQuestion = 0">Target</button>
-        <button class="btn btn-primary" ng-click="activeQuestion = 0">Walmart</button>
-        <button class="btn btn-info" ng-click="activeQuestion = 0">Macy's</button>
-    </div>
-    -->
-
-    <!-- data driven slides -->
-    <div ng-repeat="question in myQuestions" class="question
+	<!-- Intro slide
+	<div class="intro {{ (activeQuestion > -1) ? 'inactive' : 'active' }}">
+		<h2>What stores do you dislike most:</h2>
+		<p>(select one or more)</p>
+		<button class="btn btn-warning" ng-click="activeQuestion = 0">Amazon</button>
+		<button class="btn btn-success" ng-click="activeQuestion = 0">Target</button>
+		<button class="btn btn-primary" ng-click="activeQuestion = 0">Walmart</button>
+		<button class="btn btn-info" ng-click="activeQuestion = 0">Macy's</button>
+	</div>
+	-->
+	
+	<!-- data driven slides -->
+	<div ng-repeat="question in myQuestions" class="question
 		{{ question.questionState === 'answered' ? 'answered' : 'unanswered' }}
 		{{ $index === activeQuestion ? 'active' : 'inactive' }}">
-
-        <!-- The Question -->
-        <h3 class="q-txt">{{ question.question }}</h3>
-
-        <!-- Inner Loop Begins: -->
-        <div class="bf-ans" ng-class="{
-                    'image': answer.image,
-                    'selected': isSelected($parent.$index, $index),
-                    'correct': isCorrect($parent.$index, $index)
-			     }" ng-style="{'background-image': 'url({{answer.image}})'}"
-                ng-click="selectAnswer($parent.$index, $index)"
-                ng-repeat="answer in question.answers">
-
-            <p class="bf-ans-para">{{ answer.text }}</p>
-        </div>
-
-        <!-- feedback: -->
-        <div class="feedback">
-            <!--
-             <p ng-show="question.correctness === 'correct'">
-                Correct! Good job ^_^
-            </p>
-            <p ng-show="question.correctness === 'incorrect'">
-                Wrong. Keep on studying. :/
-            </p>
-             -->
-
-            <!--<p>{{ question.feedback }}</p>-->
-            <div ng-show="question.question !== 'Which JavaScript Framework is the worst?'" class="btn btn-sm btn-info"
-                 ng-click="selectContinue()">
-                <strong>Continue</strong>
-            </div>
-            <div ng-show="question.question === 'Which JavaScript Framework is the worst?'" class="btn btn-sm btn-info"
-                 ng-click="seeMatches()">
-                <strong>See Matches</strong>
-            </div>
-            <p class="q-txt"><strong>Most Disliked: </strong><small>{{userAnswer}}</small></p>
-        </div>
-    </div>
+		
+		<!-- The Question -->
+		<h3 class="q-txt">{{ question.question }}</h3>
+		
+		<!-- Inner Loop Begins: -->
+		<div class="bf-ans" ng-class="{'image': answer.image, 'selected': isSelected($parent.$index, $index),
+                    'correct': isCorrect($parent.$index, $index)}" ng-style="{'background-image': 'url({{answer.image}})'}"
+		     data-ng-click="selectAnswer($parent.$index, $index)" ng-repeat="answer in question.answers">
+			<p class="bf-ans-para">{{ answer.text }}</p>
+		</div>
+		
+		<!-- feedback: -->
+		<div class="feedback">
+			<!--<p>{{ question.feedback }}</p>-->
+			<div ng-show="question.question !== 'Which JavaScript Framework is the worst?'" class="btn btn-sm btn-info"
+			     data-ng-click="selectContinue()">
+				<strong>Continue</strong>
+			</div>
+			<div ng-show="question.question === 'Which JavaScript Framework is the worst?'" class="btn btn-sm btn-info"
+			     data-ng-click="seeMatches()">
+				<strong>See Matches</strong>
+			</div>
+			<p class="q-txt"><strong>Most Disliked: </strong>
+				<small>{{userAnswer}}</small>
+			</p>
+		</div>
+	</div>
 </section>

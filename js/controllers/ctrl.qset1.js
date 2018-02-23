@@ -22,11 +22,11 @@
         }
 
         auth.$onAuthStateChanged(function (authUser) {
-
             if(authUser) {
-
-                var matchesRef = ref.child('users').child(authUser.uid).child('dislikes');
+                var matchesRef = ref.child('users').child(authUser.uid);//.child('dislikes');
+                var dislikesRef = matchesRef.child("dislikes");
                 var matchesInfo = $firebaseArray(matchesRef);
+                var dislikesInfoAR = $firebaseArray(dislikesRef);
                 $scope.meetings = matchesInfo;
                 var allUsers;
 
@@ -41,16 +41,22 @@
                 });
 
                 $scope.seeMatches = function () {
+                    if(!$rootScope.currentUser) {
+                        $location.url("/register");
+                    }
                     $location.url("/matches");
+                    // var dislikes = matchesInfo.$keyAt(1);
+                    console.log("BuddyMatch.me - dislikes = ");
+                    console.log(dislikesInfoAR[29]);
+                    console.log(dislikesInfoAR[29].question);
+                    console.log(dislikesInfoAR[29].answer);
+                    console.log("BuddyMatch.me - entire dislikes array for this user:");
+                    console.log(dislikesInfoAR);
                     $rootScope.matchesAlgo = "Sorry, I didn't complete this algorithm :'( ";
                 };
             }
 
             $scope.selectAnswer = function (indexQuestion, indexAnswer) {
-                if(!$rootScope.currentUser) {
-                    $location.url("/register");
-                }
-
                 $scope.userAnswer = $scope.myQuestions[indexQuestion].answers[indexAnswer].text;
 
                 if(matchesInfo) {
@@ -92,7 +98,6 @@
             $scope.selectContinue = function () {
                 return $scope.activeQuestion += 1;
             };
-
         });
 
         $scope.createShareLinks = function (percent) {
@@ -106,10 +111,7 @@
             return $sce.trustAsHtml(newMarkup);
         };
 
-
-
         activate();
-
         function activate() {
             jBufiDataSer.getLocalData().then(function (res) {
                 $scope.myQuestions = res.data;
