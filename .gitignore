@@ -1,10 +1,5 @@
 **/.idea
-vendor
-quiz_data.*
-images
 **/.idea
 node_modules
 **/*.xml
 **/**/*.xml
-**/bower_components
-app/ui.html
