@@ -38,11 +38,13 @@ myApp.factory('Authentication',
                         user.email,
                         user.password
                     ).then(function (regUser) {
+                        var tFirst = user.firstname ? user.firstname : user.email;
+                        var tLast =  user.lastname ?  user.lastname : 'no last name';
                         var regRef = ref.child('users').child(regUser.uid).set({
                                 date: firebase.database.ServerValue.TIMESTAMP,
                                 regUser: regUser.uid,
-                                firstname: user.firstname,
-                                lastname: user.lastname,
+                                firstname: tFirst,
+                                lastname: tLast,
                                 email: user.email
                             }); // user info
                         $rootScope.message = "Thanks for registering "+user.firstname;

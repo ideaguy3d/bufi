@@ -6,6 +6,7 @@
 
     function QuestionSetOneCtrlClass($rootScope, $scope, $location, jBufiDataSer, $firebaseAuth, $firebaseArray) {
         var vm = this;
+        var addAnswerData;
         vm.message = "QuestionSetOneCtrl wired up!";
 
         var ref = firebase.database().ref();
@@ -34,8 +35,47 @@
             $rootScope.matchesAlgo = "Sorry, I didn't complete this algorithm :'( ";
         };
 
+// selectAnswer() is The sort of Engine that powers this questionnaire
+        $scope.selectAnswer = function (indexQuestion, indexAnswer) {
+            if(!$rootScope.currentUser) { // user !authenticated ):
+                console.log(" - jha - user is not authenticated");
+                $location.url("/register");
+            }
+            else { // the user is authenticated (:
+                console.log(" - jha - user is authenticated");
+                $scope.userAnswer = $scope.myQuestions[indexQuestion].answers[indexAnswer].text;
+                var item = {
+                    question: $scope.myQuestions[indexQuestion].question,
+                    answer: $scope.myQuestions[indexQuestion].answers[indexAnswer].text
+                };
+
+                addAnswerData(item);
+
+                var questionState = $scope.myQuestions[indexQuestion].questionState;
+
+                if (questionState !== 'answered') { // .questionState is falsey because user has yet to click on an answer
+                    $scope.myQuestions[indexQuestion].selectedAnswer = indexAnswer;
+                    var correctAnswer = $scope.myQuestions[indexQuestion].correct;
+                    $scope.myQuestions[indexQuestion].correctAnswer = correctAnswer;
+
+                    if (indexAnswer === correctAnswer) {
+                        $scope.myQuestions[indexQuestion].correctness = 'correct';
+                        $scope.score += 1;
+                    } else {
+                        $scope.myQuestions[indexQuestion].correctness = 'incorrect';
+                    }
+                    // now that user has clicked on an answer I now set .questionState
+                    $scope.myQuestions[indexQuestion].questionState = 'answered';
+                }
+            }
+
+            $scope.percentScore = (100 * ($scope.score / $scope.totalQuestions)).toFixed(2);
+        };
+
+        // listen for change to Authentication state
         auth.$onAuthStateChanged(function (authUser) {
             if (authUser) {
+                var numQuestions = 3;
                 //-- DB refs:
                 var usersRef = ref.child('users');
                 var authUsersInfoRef = usersRef.child(authUser.uid);
@@ -46,36 +86,6 @@
                 var dislikesInfoAR = $firebaseArray(dislikesRef);
                 //-- View Model Data Bindings:
                 $scope.meetings = authUsersInfoAR;
-
-                // selectAnswer() is The sort of Engine that powers this questionnaire
-                $scope.selectAnswer = function (indexQuestion, indexAnswer) {
-                    $scope.userAnswer = $scope.myQuestions[indexQuestion].answers[indexAnswer].text;
-                    var item = {
-                        question: $scope.myQuestions[indexQuestion].question,
-                        answer: $scope.myQuestions[indexQuestion].answers[indexAnswer].text
-                    };
-
-                    addAnswerData(item);
-
-                    var questionState = $scope.myQuestions[indexQuestion].questionState;
-
-                    if (questionState !== 'answered') { // .questionState is falsey because user has yet to click on an answer
-                        $scope.myQuestions[indexQuestion].selectedAnswer = indexAnswer;
-                        var correctAnswer = $scope.myQuestions[indexQuestion].correct;
-                        $scope.myQuestions[indexQuestion].correctAnswer = correctAnswer;
-
-                        if (indexAnswer === correctAnswer) {
-                            $scope.myQuestions[indexQuestion].correctness = 'correct';
-                            $scope.score += 1;
-                        } else {
-                            $scope.myQuestions[indexQuestion].correctness = 'incorrect';
-                        }
-                        // now that user has clicked on an answer I now set .questionState
-                        $scope.myQuestions[indexQuestion].questionState = 'answered';
-                    }
-
-                    $scope.percentScore = (100 * ($scope.score / $scope.totalQuestions)).toFixed(2);
-                };
 
                 $scope.seeMatches = function () {
                     if (!$rootScope.currentUser) {
@@ -90,33 +100,38 @@
                     $rootScope.matchesAlgo = "Sorry, I didn't complete this algorithm :'( ";
                 };
 
-                var addAnswerData = function (item) {
-                    var localCopyDislikesAR = dislikesInfoAR.slice();
 
-                    console.log("localCopyDislikesAR =");
-                    console.log(localCopyDislikesAR);
-
-                    if (!dislikesInfoAR) {
-                        console.log("in $add() bool state");
-                        dislikesInfoAR.$add(item).then(function (ref) {
-                            console.log(" - jha -  in $add(), ref = ");
-                            console.log(ref);
-                        }).catch(function (err) {
-                            console.log(" - jha - $add() state Error:");
-                            console.log(err);
-                        });
-                    } else {
-                        console.log("in $save() bool state");
-                        dislikesInfoAR.$save(item).then(function (ref) {
-                            console.log(" - jha - in $save(), ref = ");
-                            console.log(ref);
-                        }).catch(function (err) {
-                            console.log(" - jha - $save() Error:");
-                            console.log(err);
-                        });
-                    }
-                }
             } // END "if(authUser){}"
+
+            addAnswerData = function (item) {
+                var localCopyDislikesAR = dislikesInfoAR.slice();
+
+                console.log("localCopyDislikesAR =");
+                console.log(localCopyDislikesAR);
+
+                if (!dislikesInfoAR) {
+                    console.log("in $add() bool state");
+                    dislikesInfoAR.$add(item).then(function (ref) {
+                        console.log(" - jha -  in $add(), ref = ");
+                        console.log(ref);
+                    }).catch(function (err) {
+                        console.log(" - jha - $add() state Error:");
+                        console.log(err);
+                    });
+                } else {
+                    if (dislikesInfoAR.length > numQuestions) {
+                        console.log(" - jha - Error: there are more answers in the DB than questions being asked ^_^");
+                    }
+                    console.log("in $save() bool state");
+                    dislikesInfoAR.$save(item).then(function (ref) {
+                        console.log(" - jha - in $save(), ref = ");
+                        console.log(ref);
+                    }).catch(function (err) {
+                        console.log(" - jha - $save() Error:");
+                        console.log(err);
+                    });
+                }
+            };
 
             $scope.isSelected = function (qIndex, aIndex) {
                 return $scope.myQuestions[qIndex].selectedAnswer === aIndex;
