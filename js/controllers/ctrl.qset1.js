@@ -91,6 +91,11 @@
                 };
 
                 var addAnswerData = function (item) {
+                    var localCopyDislikesAR = dislikesInfoAR.slice();
+
+                    console.log("localCopyDislikesAR =");
+                    console.log(localCopyDislikesAR);
+
                     if (!dislikesInfoAR) {
                         console.log("in $add() bool state");
                         dislikesInfoAR.$add(item).then(function (ref) {
