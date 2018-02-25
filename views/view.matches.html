@@ -19,19 +19,18 @@
 
 <div class="card meetings cf">
     <h2>Your Matches so far...</h2>
-    <h4>{{matchesAlgo}}</h4>
-    <div class="meeting" ng-repeat="match in matchesV1"> <!-- (key, meeting) in matchesV1 -->
-        <span>{{ match.user }}</span> &nbsp;
-        <!-- delete meeting button -->
-        <button class="btn btn-delete tooltip" ng-click="deleteMeeting(key)">
-            <span>Delete Match</span>
-        </button>
-        <!-- go2meeting btn -->
+    <h4>Matches: </h4>
 
-        <!-- view check ins list btn -->
-        <a ng-href=""
-           class="btn btn-list tooltip">
-            <span>match</span>
-        </a>
-    </div>
+    <h1>
+        <button data-ng-click="seeMatches()">See Matches</button>
+    </h1>
+
+    <ul>
+        <li ng-repeat="match in matches">
+              ~ {{match.user}} is a Grade {{match.grade}} match
+        </li>
+    </ul>
+
+    <br> <hr>
+    <h3>End of matches {{testBind}}</h3>
 </div>

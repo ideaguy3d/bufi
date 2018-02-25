@@ -44,7 +44,7 @@ myApp.config(['$routeProvider', function ($routeProvider) {
         })
         .when('/matches', {
             templateUrl: 'views/view.matches.html',
-            controller: 'MatchesController'
+            controller: 'QuestionSetOneCtrl'
         })
         .otherwise({
             redirectTo: '/'

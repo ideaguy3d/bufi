@@ -87,85 +87,90 @@
                 //-- View Model Data Bindings:
                 $scope.meetings = authUsersInfoAR;
 
-                $scope.seeMatches = function () {
-                    if (!$rootScope.currentUser) {
-                        $location.url("/register");
-                    }
+                //-- curUserDislike object:
+                var obj = $firebaseObject(dislikesRef);
+                var curUserDislikes = {};
+                obj.$loaded().then(function () {
+                    console.log("loaded record:", obj.$id, obj.answer);
 
-                    $location.url("/matches");
-
-                    var obj = $firebaseObject(dislikesRef);
-                    var curUserDislikes = {};
-                    obj.$loaded().then(function () {
-                        console.log("loaded record:", obj.$id, obj.answer);
-
-                        // To iterate the key/value pairs of the object, use angular.forEach()
-                        angular.forEach(obj, function (value, key) {
-                            console.log("key: "+key, "value"+value);
-                            curUserDislikes[obj[key].question] = obj[key].answer;
-                        });
-
-                        console.log(" jha - curUserDislikes:");
-                        console.log(curUserDislikes);
-
-                        //---------------------------------------------------------------------------
-// THE ACTUAL MATCHING !!
-                        for (var i = 0; i < usersDataAR.length; i++) {
-                            var user = usersDataAR[i];
-                            var dislikes = user.dislikes;
-                            var tArr = [];
-                            var count = 0;
-                            var otherUserEmail = user.email;
-
-                            for (var key in dislikes) {
-                                tArr[count] = dislikes[key].answer;
-                                ++count;
-                            }
-                            count = 0;
-
-                            var points = 0;
-                            tArr.forEach(function (ans) {
-                                var q1 = curUserDislikes["What music do you DISlike most?"];
-                                console.log("q1 === "+q1);
-                                console.log("ans === " + ans);
-                                var q2 = curUserDislikes["What bothers you most?"];
-                                var q3 = curUserDislikes["Which JavaScript Framework is the worst?"];
-                                if(q1 === ans) points++;
-                                if(q2 === ans) points++;
-                                if(q3 === ans) points++;
-                            });
-
-                            if (points === 3) {
-                                curUserMatches[count] = {
-                                    grade: "A+",
-                                    user: otherUserEmail
-                                }
-                            } else if (points === 2) {
-                                curUserMatches[count] = {
-                                    grade: "B+",
-                                    user: otherUserEmail
-                                }
-                            } else if (points === 1) {
-                                curUserMatches[count] = {
-                                    grade: "C+",
-                                    user: otherUserEmail
-                                }
-                            }
-
-                            console.log(" jha - other user dislikes = ");
-                            console.log(otherUserEmail);
-                            console.log(user.dislikes);
-                            console.log("temp array: ");
-                            console.log(tArr);
-                            console.log("the other user");
-                            console.log(user);
-                        }
-                        //---------------------------------------------------------------------------
+                    // To iterate the key/value pairs of the object, use angular.forEach()
+                    angular.forEach(obj, function (value, key) {
+                        console.log("key: " + key, "value" + value);
+                        curUserDislikes[obj[key].question] = obj[key].answer;
                     });
 
-                    var curUserMatches = [];
+                    console.log(" jha - curUserDislikes:");
+                    console.log(curUserDislikes);
+                });
 
+                $scope.seeMatches = function () {
+                    //-- The MATCHES:
+                    $rootScope.matches = [];
 
+                    //-- The ACTUAL MATCHING loop:
+                    for (var i = 0; i < usersDataAR.length; i++) {
+                        var user = usersDataAR[i];
+                        var dislikes = user.dislikes;
+                        var tArr = [];
+                        var count = 0;
+                        var otherUserEmail = user.email;
+
+                        for (var key in dislikes) {
+                            tArr[count] = dislikes[key].answer;
+                            ++count;
+                        }
+
+                        var points = 0;
+                        tArr.forEach(function (ans) {
+                            var q1 = curUserDislikes["What music do you DISlike most?"];
+
+                            var q2 = curUserDislikes["What bothers you most?"];
+                            var q3 = curUserDislikes["Which JavaScript Framework is the worst?"];
+
+                            if (q1 === ans) points++;
+                            if (q2 === ans) points++;
+                            if (q3 === ans) points++;
+                        });
+
+                        count = 0;
+                        if (points === 3) {
+                            $rootScope.matches[count] = {
+                                grade: "A+",
+                                user: otherUserEmail
+                            };
+                            //count++;
+                        } else if (points === 2) {
+                            $rootScope.matches[count] = {
+                                grade: "B+",
+                                user: otherUserEmail
+                            };
+                            //count++;
+                        } else if (points === 1) {
+                            $rootScope.matches[count] = {
+                                grade: "C+",
+                                user: otherUserEmail
+                            };
+                            //count++;
+                        } else if (points === 0) {
+                            $rootScope.matches[count] = {
+                                grade: "no matches :|",
+                                user: otherUserEmail
+                            }
+                        }
+
+                        console.log(" jha - other user dislikes = ");
+                        console.log(otherUserEmail);
+                        console.log(user.dislikes);
+                        console.log("temp array: ");
+                        console.log(tArr);
+                        console.log("the other user");
+                        console.log(user);
+                    }
+
+                    $scope.testBind = "should be set to test bind near matching loop";
+
+                    console.log("MATCHES MATCHES MATCHES= ");
+                    console.log($rootScope.matches);
 
                     console.log(" - jha - dislikesInfoAR for this user:");
                     console.log(dislikesInfoAR);
@@ -173,19 +178,11 @@
                     console.log(" - jha - usersDataAR:");
                     console.log(usersDataAR);
 
-                    console.log(" THE MATCHES !!!");
-                    console.log(curUserMatches);
-                    $scope.matchesV1 = curUserMatches.slice();
                     $rootScope.matchesAlgo = "Sorry, I didn't complete this algorithm :'( ";
                 };
             } // END "if(authUser){}"
 
             addAnswerData = function (item) {
-                var localCopyDislikesAR = dislikesInfoAR.slice();
-
-                console.log("localCopyDislikesAR =");
-                console.log(localCopyDislikesAR);
-
                 if (dislikesInfoAR.length < numQuestions) {
                     console.log("in $add() bool state");
                     dislikesInfoAR.$add(item).then(function (ref) {

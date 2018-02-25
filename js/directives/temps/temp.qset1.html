@@ -33,10 +33,10 @@
 			     data-ng-click="selectContinue()">
 				<strong>Continue</strong>
 			</div>
-			<div ng-show="question.question === 'Which JavaScript Framework is the worst?'" class="btn btn-sm btn-info"
-			     data-ng-click="seeMatches()">
+			<a ng-href="#/matches"
+                    ng-show="question.question === 'Which JavaScript Framework is the worst?'" class="btn btn-sm btn-info">
 				<strong>See Matches</strong>
-			</div>
+			</a>
 			<p class="q-txt"><strong>Most Disliked: </strong>
 				<small>{{userAnswer}}</small>
 			</p>
