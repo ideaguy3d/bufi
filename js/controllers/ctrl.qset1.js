@@ -2,9 +2,9 @@
     "use strict";
 
     angular.module('myApp').controller("QuestionSetOneCtrl", ["$rootScope", "$scope",
-        "$location","jBufiDataSer", "$firebaseAuth", "$firebaseArray", QuestionSetOneCtrlClass]);
+        "$location", "jBufiDataSer", "$firebaseAuth", "$firebaseArray", QuestionSetOneCtrlClass]);
 
-    function QuestionSetOneCtrlClass($rootScope, $scope, $location, jBufiDataSer,  $firebaseAuth, $firebaseArray) {
+    function QuestionSetOneCtrlClass($rootScope, $scope, $location, jBufiDataSer, $firebaseAuth, $firebaseArray) {
         var vm = this;
         vm.message = "QuestionSetOneCtrl wired up!";
 
@@ -16,13 +16,25 @@
         $scope.activeQuestionAnswered = 0;
         $scope.percentScore = 0;
 
+        activate();
         setActiveQuestion();
-        function setActiveQuestion() {
-            $scope.activeQuestion = 0;
-        }
+
+        $scope.seeMatchesUnauth = function () {
+            if (!$rootScope.currentUser) {
+                $location.url("/register");
+            } else {
+                $location.url("/matches");
+            }
+
+            var dislikes = dislikesInfoAR.$keyAt(1);
+
+            console.log("BuddyMatch.me - entire dislikes array for this user:");
+            console.log(dislikesInfoAR);
+            $rootScope.matchesAlgo = "Sorry, I didn't complete this algorithm :'( ";
+        };
 
         auth.$onAuthStateChanged(function (authUser) {
-            if(authUser) {
+            if (authUser) {
                 var matchesRef = ref.child('users').child(authUser.uid);//.child('dislikes');
                 var dislikesRef = matchesRef.child("dislikes");
                 var matchesInfo = $firebaseArray(matchesRef);
@@ -41,15 +53,12 @@
                 });
 
                 $scope.seeMatches = function () {
-                    if(!$rootScope.currentUser) {
+                    if (!$rootScope.currentUser) {
                         $location.url("/register");
                     }
                     $location.url("/matches");
                     // var dislikes = matchesInfo.$keyAt(1);
                     console.log("BuddyMatch.me - dislikes = ");
-                    console.log(dislikesInfoAR[29]);
-                    console.log(dislikesInfoAR[29].question);
-                    console.log(dislikesInfoAR[29].answer);
                     console.log("BuddyMatch.me - entire dislikes array for this user:");
                     console.log(dislikesInfoAR);
                     $rootScope.matchesAlgo = "Sorry, I didn't complete this algorithm :'( ";
@@ -59,8 +68,8 @@
             $scope.selectAnswer = function (indexQuestion, indexAnswer) {
                 $scope.userAnswer = $scope.myQuestions[indexQuestion].answers[indexAnswer].text;
 
-                if(matchesInfo) {
-                    matchesInfo.$add({
+                if (dislikesInfoAR) {
+                    dislikesInfoAR.$add({
                         question: $scope.myQuestions[indexQuestion].question,
                         answer: $scope.myQuestions[indexQuestion].answers[indexAnswer].text
                     });
@@ -111,7 +120,10 @@
             return $sce.trustAsHtml(newMarkup);
         };
 
-        activate();
+        function setActiveQuestion() {
+            $scope.activeQuestion = 0;
+        }
+
         function activate() {
             jBufiDataSer.getLocalData().then(function (res) {
                 $scope.myQuestions = res.data;

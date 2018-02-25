@@ -1,7 +1,7 @@
 myApp.factory('Authentication',
     ['$rootScope', '$location', '$firebaseObject', '$firebaseAuth',
         function ($rootScope, $location, $firebaseObject, $firebaseAuth) {
-
+            $rootScope.currentUser = '';
             var ref = firebase.database().ref();
             var auth = $firebaseAuth();
             var authapi = {};
@@ -27,15 +27,12 @@ myApp.factory('Authentication',
                         $rootScope.message = error.message;
                     }); //signInWithEmailAndPassword
                 }, //login
-
                 logout: function () {
                     return auth.$signOut();
                 }, //logout
-
                 requireAuth: function () {
                     return auth.$requireSignIn();
                 }, // require Authentication
-
                 register: function (user) {
                     auth.$createUserWithEmailAndPassword(
                         user.email,

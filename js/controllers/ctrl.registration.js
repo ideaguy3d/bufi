@@ -16,4 +16,6 @@ myApp.controller('RegistrationController',
             $scope.register = function () {
                 Authentication.register($scope.user);
             }; // register
-        }]); // Controller
+        }
+    ]
+); // Controller
