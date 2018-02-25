@@ -109,7 +109,7 @@
                 console.log("localCopyDislikesAR =");
                 console.log(localCopyDislikesAR);
 
-                if (!dislikesInfoAR) {
+                if (dislikesInfoAR.length < numQuestions) {
                     console.log("in $add() bool state");
                     dislikesInfoAR.$add(item).then(function (ref) {
                         console.log(" - jha -  in $add(), ref = ");
@@ -119,9 +119,6 @@
                         console.log(err);
                     });
                 } else {
-                    if (dislikesInfoAR.length > numQuestions) {
-                        console.log(" - jha - Error: there are more answers in the DB than questions being asked ^_^");
-                    }
                     console.log("in $save() bool state");
                     dislikesInfoAR.$save(item).then(function (ref) {
                         console.log(" - jha - in $save(), ref = ");
