@@ -19,6 +19,7 @@
         activate();
         setActiveQuestion();
 
+        // will NOT work at the moment...
         $scope.seeMatchesUnauth = function () {
             if (!$rootScope.currentUser) {
                 $location.url("/register");
@@ -35,66 +36,82 @@
 
         auth.$onAuthStateChanged(function (authUser) {
             if (authUser) {
-                var matchesRef = ref.child('users').child(authUser.uid);//.child('dislikes');
-                var dislikesRef = matchesRef.child("dislikes");
-                var matchesInfo = $firebaseArray(matchesRef);
+                //-- DB refs:
+                var usersRef = ref.child('users');
+                var authUsersInfoRef = usersRef.child(authUser.uid);
+                var dislikesRef = authUsersInfoRef.child("dislikes");
+                //-- Firebase Arrays:
+                var usersDataAR = $firebaseArray(usersRef);
+                var authUsersInfoAR = $firebaseArray(authUsersInfoRef);
                 var dislikesInfoAR = $firebaseArray(dislikesRef);
-                $scope.meetings = matchesInfo;
-                var allUsers;
+                //-- View Model Data Bindings:
+                $scope.meetings = authUsersInfoAR;
 
-                $firebaseArray(ref.child('users')).$loaded().then(function (res) {
-                    var allUsersArray = [];
-                    console.log("jha - res = ");
-                    console.log(res.length);
-                    for (var i = 0; i < res.length; i++) {
-                        allUsersArray[i] = res[i];
+                // selectAnswer() is The sort of Engine that powers this questionnaire
+                $scope.selectAnswer = function (indexQuestion, indexAnswer) {
+                    $scope.userAnswer = $scope.myQuestions[indexQuestion].answers[indexAnswer].text;
+                    var item = {
+                        question: $scope.myQuestions[indexQuestion].question,
+                        answer: $scope.myQuestions[indexQuestion].answers[indexAnswer].text
+                    };
+
+                    addAnswerData(item);
+
+                    var questionState = $scope.myQuestions[indexQuestion].questionState;
+
+                    if (questionState !== 'answered') { // .questionState is falsey because user has yet to click on an answer
+                        $scope.myQuestions[indexQuestion].selectedAnswer = indexAnswer;
+                        var correctAnswer = $scope.myQuestions[indexQuestion].correct;
+                        $scope.myQuestions[indexQuestion].correctAnswer = correctAnswer;
+
+                        if (indexAnswer === correctAnswer) {
+                            $scope.myQuestions[indexQuestion].correctness = 'correct';
+                            $scope.score += 1;
+                        } else {
+                            $scope.myQuestions[indexQuestion].correctness = 'incorrect';
+                        }
+                        // now that user has clicked on an answer I now set .questionState
+                        $scope.myQuestions[indexQuestion].questionState = 'answered';
                     }
-                    allUsers = allUsersArray;
-                });
+
+                    $scope.percentScore = (100 * ($scope.score / $scope.totalQuestions)).toFixed(2);
+                };
 
                 $scope.seeMatches = function () {
                     if (!$rootScope.currentUser) {
                         $location.url("/register");
                     }
                     $location.url("/matches");
-                    // var dislikes = matchesInfo.$keyAt(1);
-                    console.log("BuddyMatch.me - dislikes = ");
-                    console.log("BuddyMatch.me - entire dislikes array for this user:");
+                    console.log(" - jha - dislikesInfoAR for this user:");
                     console.log(dislikesInfoAR);
+                    console.log(" - jha - usersDataAR:");
+                    console.log(usersDataAR);
+
                     $rootScope.matchesAlgo = "Sorry, I didn't complete this algorithm :'( ";
                 };
-            }
 
-            $scope.selectAnswer = function (indexQuestion, indexAnswer) {
-                $scope.userAnswer = $scope.myQuestions[indexQuestion].answers[indexAnswer].text;
-
-                if (dislikesInfoAR) {
-                    dislikesInfoAR.$add({
-                        question: $scope.myQuestions[indexQuestion].question,
-                        answer: $scope.myQuestions[indexQuestion].answers[indexAnswer].text
-                    });
-                }
-
-                var questionState = $scope.myQuestions[indexQuestion].questionState;
-
-                if (questionState !== 'answered') { // .questionState is falsey because user has yet to click on an answer
-                    $scope.myQuestions[indexQuestion].selectedAnswer = indexAnswer;
-                    var correctAnswer = $scope.myQuestions[indexQuestion].correct;
-                    $scope.myQuestions[indexQuestion].correctAnswer = correctAnswer;
-
-                    if (indexAnswer === correctAnswer) {
-                        $scope.myQuestions[indexQuestion].correctness = 'correct';
-                        $scope.score += 1;
+                var addAnswerData = function (item) {
+                    if (!dislikesInfoAR) {
+                        console.log("in $add() bool state");
+                        dislikesInfoAR.$add(item).then(function (ref) {
+                            console.log(" - jha -  in $add(), ref = ");
+                            console.log(ref);
+                        }).catch(function (err) {
+                            console.log(" - jha - $add() state Error:");
+                            console.log(err);
+                        });
                     } else {
-                        $scope.myQuestions[indexQuestion].correctness = 'incorrect';
+                        console.log("in $save() bool state");
+                        dislikesInfoAR.$save(item).then(function (ref) {
+                            console.log(" - jha - in $save(), ref = ");
+                            console.log(ref);
+                        }).catch(function (err) {
+                            console.log(" - jha - $save() Error:");
+                            console.log(err);
+                        });
                     }
-                    // now that user has clicked on an answer I now set .questionState
-                    $scope.myQuestions[indexQuestion].questionState = 'answered';
                 }
-
-                $scope.percentScore = (100 * ($scope.score / $scope.totalQuestions))
-                    .toFixed(2);
-            };
+            } // END "if(authUser){}"
 
             $scope.isSelected = function (qIndex, aIndex) {
                 return $scope.myQuestions[qIndex].selectedAnswer === aIndex;
