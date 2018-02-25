@@ -2,9 +2,9 @@
     "use strict";
 
     angular.module('myApp').controller("QuestionSetOneCtrl", ["$rootScope", "$scope",
-        "$location", "jBufiDataSer", "$firebaseAuth", "$firebaseArray", QuestionSetOneCtrlClass]);
+        "$location", "jBufiDataSer", "$firebaseAuth", "$firebaseArray", "$firebaseObject", QuestionSetOneCtrlClass]);
 
-    function QuestionSetOneCtrlClass($rootScope, $scope, $location, jBufiDataSer, $firebaseAuth, $firebaseArray) {
+    function QuestionSetOneCtrlClass($rootScope, $scope, $location, jBufiDataSer, $firebaseAuth, $firebaseArray, $firebaseObject) {
         var vm = this;
         var addAnswerData;
         vm.message = "QuestionSetOneCtrl wired up!";
@@ -35,9 +35,9 @@
             $rootScope.matchesAlgo = "Sorry, I didn't complete this algorithm :'( ";
         };
 
-// selectAnswer() is The sort of Engine that powers this questionnaire
+        // selectAnswer() is The sort of Engine that powers this questionnaire
         $scope.selectAnswer = function (indexQuestion, indexAnswer) {
-            if(!$rootScope.currentUser) { // user !authenticated ):
+            if (!$rootScope.currentUser) { // user !authenticated ):
                 console.log(" - jha - user is not authenticated");
                 $location.url("/register");
             }
@@ -91,16 +91,93 @@
                     if (!$rootScope.currentUser) {
                         $location.url("/register");
                     }
+
                     $location.url("/matches");
+
+                    var obj = $firebaseObject(dislikesRef);
+                    var curUserDislikes = {};
+                    obj.$loaded().then(function () {
+                        console.log("loaded record:", obj.$id, obj.answer);
+
+                        // To iterate the key/value pairs of the object, use angular.forEach()
+                        angular.forEach(obj, function (value, key) {
+                            console.log("key: "+key, "value"+value);
+                            curUserDislikes[obj[key].question] = obj[key].answer;
+                        });
+
+                        console.log(" jha - curUserDislikes:");
+                        console.log(curUserDislikes);
+
+                        //---------------------------------------------------------------------------
+// THE ACTUAL MATCHING !!
+                        for (var i = 0; i < usersDataAR.length; i++) {
+                            var user = usersDataAR[i];
+                            var dislikes = user.dislikes;
+                            var tArr = [];
+                            var count = 0;
+                            var otherUserEmail = user.email;
+
+                            for (var key in dislikes) {
+                                tArr[count] = dislikes[key].answer;
+                                ++count;
+                            }
+                            count = 0;
+
+                            var points = 0;
+                            tArr.forEach(function (ans) {
+                                var q1 = curUserDislikes["What music do you DISlike most?"];
+                                console.log("q1 === "+q1);
+                                console.log("ans === " + ans);
+                                var q2 = curUserDislikes["What bothers you most?"];
+                                var q3 = curUserDislikes["Which JavaScript Framework is the worst?"];
+                                if(q1 === ans) points++;
+                                if(q2 === ans) points++;
+                                if(q3 === ans) points++;
+                            });
+
+                            if (points === 3) {
+                                curUserMatches[count] = {
+                                    grade: "A+",
+                                    user: otherUserEmail
+                                }
+                            } else if (points === 2) {
+                                curUserMatches[count] = {
+                                    grade: "B+",
+                                    user: otherUserEmail
+                                }
+                            } else if (points === 1) {
+                                curUserMatches[count] = {
+                                    grade: "C+",
+                                    user: otherUserEmail
+                                }
+                            }
+
+                            console.log(" jha - other user dislikes = ");
+                            console.log(otherUserEmail);
+                            console.log(user.dislikes);
+                            console.log("temp array: ");
+                            console.log(tArr);
+                            console.log("the other user");
+                            console.log(user);
+                        }
+                        //---------------------------------------------------------------------------
+                    });
+
+                    var curUserMatches = [];
+
+
+
                     console.log(" - jha - dislikesInfoAR for this user:");
                     console.log(dislikesInfoAR);
+
                     console.log(" - jha - usersDataAR:");
                     console.log(usersDataAR);
 
+                    console.log(" THE MATCHES !!!");
+                    console.log(curUserMatches);
+                    $scope.matchesV1 = curUserMatches.slice();
                     $rootScope.matchesAlgo = "Sorry, I didn't complete this algorithm :'( ";
                 };
-
-
             } // END "if(authUser){}"
 
             addAnswerData = function (item) {
