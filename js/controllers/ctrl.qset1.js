@@ -138,19 +138,19 @@
                                 grade: "A+",
                                 user: otherUserEmail
                             };
-                            //count++;
+                            count++;
                         } else if (points === 2) {
                             $rootScope.matches[count] = {
                                 grade: "B+",
                                 user: otherUserEmail
                             };
-                            //count++;
+                            count++;
                         } else if (points === 1) {
                             $rootScope.matches[count] = {
                                 grade: "C+",
                                 user: otherUserEmail
                             };
-                            //count++;
+                            count++;
                         } else if (points === 0) {
                             $rootScope.matches[count] = {
                                 grade: "no matches :|",
