@@ -1,16 +1,5 @@
 <!-- ctrl=QuestionSetOneCtrl -->
 <section id="bf-quote">
-	<!-- Intro slide
-	<div class="intro {{ (activeQuestion > -1) ? 'inactive' : 'active' }}">
-		<h2>What stores do you dislike most:</h2>
-		<p>(select one or more)</p>
-		<button class="btn btn-warning" ng-click="activeQuestion = 0">Amazon</button>
-		<button class="btn btn-success" ng-click="activeQuestion = 0">Target</button>
-		<button class="btn btn-primary" ng-click="activeQuestion = 0">Walmart</button>
-		<button class="btn btn-info" ng-click="activeQuestion = 0">Macy's</button>
-	</div>
-	-->
-	
 	<!-- data driven slides -->
 	<div ng-repeat="question in myQuestions" class="question
 		{{ question.questionState === 'answered' ? 'answered' : 'unanswered' }}
@@ -33,8 +22,8 @@
 			     data-ng-click="selectContinue()">
 				<strong>Continue</strong>
 			</div>
-			<a ng-href="#/matches"
-                    ng-show="question.question === 'Which JavaScript Framework is the worst?'" class="btn btn-sm btn-info">
+			<a data-ng-href="#/matches" ng-show="question.question === 'Which JavaScript Framework is the worst?'"
+			        class="btn btn-sm btn-info">
 				<strong>See Matches</strong>
 			</a>
 			<p class="q-txt"><strong>Most Disliked: </strong>
