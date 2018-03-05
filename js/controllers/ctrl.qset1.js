@@ -35,43 +35,6 @@
             $rootScope.matchesAlgo = "Sorry, I didn't complete this algorithm :'( ";
         };
 
-        // selectAnswer() is The sort of Engine that powers this questionnaire
-        $scope.selectAnswer = function (indexQuestion, indexAnswer) {
-            if (!$rootScope.currentUser) { // user !authenticated ):
-                console.log(" - jha - user is not authenticated");
-                $location.url("/register");
-            }
-            else { // the user is authenticated (:
-                console.log(" - jha - user is authenticated");
-                $scope.userAnswer = $scope.myQuestions[indexQuestion].answers[indexAnswer].text;
-                var item = {
-                    question: $scope.myQuestions[indexQuestion].question,
-                    answer: $scope.myQuestions[indexQuestion].answers[indexAnswer].text
-                };
-
-                addAnswerData(item);
-
-                var questionState = $scope.myQuestions[indexQuestion].questionState;
-
-                if (questionState !== 'answered') { // .questionState is falsey because user has yet to click on an answer
-                    $scope.myQuestions[indexQuestion].selectedAnswer = indexAnswer;
-                    var correctAnswer = $scope.myQuestions[indexQuestion].correct;
-                    $scope.myQuestions[indexQuestion].correctAnswer = correctAnswer;
-
-                    if (indexAnswer === correctAnswer) {
-                        $scope.myQuestions[indexQuestion].correctness = 'correct';
-                        $scope.score += 1;
-                    } else {
-                        $scope.myQuestions[indexQuestion].correctness = 'incorrect';
-                    }
-                    // now that user has clicked on an answer I now set .questionState
-                    $scope.myQuestions[indexQuestion].questionState = 'answered';
-                }
-            }
-
-            $scope.percentScore = (100 * ($scope.score / $scope.totalQuestions)).toFixed(2);
-        };
-
         // listen for change to Authentication state
         auth.$onAuthStateChanged(function (authUser) {
             if (authUser) {
@@ -86,6 +49,46 @@
                 var dislikesInfoAR = $firebaseArray(dislikesRef);
                 //-- View Model Data Bindings:
                 $scope.meetings = authUsersInfoAR;
+
+                // The sort of Engine that powers this questionnaire
+                $scope.selectAnswer = function (indexQuestion, indexAnswer) {
+                    // user !authenticated ):
+                    if (!$rootScope.currentUser) {
+                        console.log(" - jha - user is not authenticated");
+                        $location.url("/register");
+                    }
+                    // the user is authenticated (:
+                    else {
+                        console.log(" - jha - user is authenticated");
+                        $scope.userAnswer = $scope.myQuestions[indexQuestion].answers[indexAnswer].text;
+                        var item = {
+                            question: $scope.myQuestions[indexQuestion].question,
+                            answer: $scope.myQuestions[indexQuestion].answers[indexAnswer].text
+                        };
+
+                        // CRUD create operation to the DB:
+                        addAnswerData(item);
+
+                        var questionState = $scope.myQuestions[indexQuestion].questionState;
+
+                        if (questionState !== 'answered') { // .questionState is falsey because user has yet to click on an answer
+                            $scope.myQuestions[indexQuestion].selectedAnswer = indexAnswer;
+                            var correctAnswer = $scope.myQuestions[indexQuestion].correct;
+                            $scope.myQuestions[indexQuestion].correctAnswer = correctAnswer;
+
+                            if (indexAnswer === correctAnswer) {
+                                $scope.myQuestions[indexQuestion].correctness = 'correct';
+                                $scope.score += 1;
+                            } else {
+                                $scope.myQuestions[indexQuestion].correctness = 'incorrect';
+                            }
+                            // now that user has clicked on an answer I now set .questionState
+                            $scope.myQuestions[indexQuestion].questionState = 'answered';
+                        }
+                    }
+
+                    $scope.percentScore = (100 * ($scope.score / $scope.totalQuestions)).toFixed(2);
+                };
 
                 //-- curUserDislike object:
                 var obj = $firebaseObject(dislikesRef);
