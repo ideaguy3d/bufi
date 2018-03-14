@@ -1,4 +1,3 @@
-
 myApp.controller('MatchesController', ['$rootScope', '$scope', '$firebaseAuth', '$firebaseArray', 'matchMessage',
     function ($rootScope, $scope, $firebaseAuth, $firebaseArray, matchMessage) {
         var vm = this;
@@ -17,7 +16,7 @@ myApp.controller('MatchesController', ['$rootScope', '$scope', '$firebaseAuth', 
                 // Authenticated users' data
                 var authUsersInfoRef = usersRef.child(authUser.uid);
                 var dislikesRef = authUsersInfoRef.child("dislikes");
-                var dislikesInfoAR = $firebaseArray(dislikesRef);
+                var authUsersDislikesA = $firebaseArray(dislikesRef);
 
                 vm.seeMatches = function () {
                     var keyCount = 0;
@@ -28,22 +27,32 @@ myApp.controller('MatchesController', ['$rootScope', '$scope', '$firebaseAuth', 
 
                     //-- The ACTUAL MATCHING loop:
                     for (var i = 0; i < usersDataAR.length; i++) {
-                        var user = usersDataAR[i];
-                        var dislikes = user.dislikes;
+                        var user = usersDataAR[i]; // the other user
+                        var dislikes = user.dislikes; // other users' dislikes
                         var tArr = [];
-
                         var otherUserEmail = user.email;
+                        var points = 0;
 
                         // O(n)^2
                         for (var key in dislikes) {
-                            if(dislikes.hasOwnProperty(key)) {
-                                console.log("key = " + key);
-                                tArr[keyCount] = dislikes[key].answer;
-                                ++keyCount;
+                            if (dislikes.hasOwnProperty(key)) {
+                                // .key will update with each for.in iteration.
+                                var otherUserQues = dislikes[key].question;
+                                var authUserQues1 = authUsersDislikesA[0].question;
+                                var authUserQues2 = authUsersDislikesA[1].question;
+                                var authUserQues3 = authUsersDislikesA[2].question;
+
+                                if (otherUserQues === authUserQues1) {
+                                    if (dislikes[key].answer === authUsersDislikesA[0].answer) points++;
+                                } else if (otherUserQues === authUserQues2) {
+                                    if (dislikes[key].answer === authUsersDislikesA[1].answer) points++;
+                                } else if (otherUserQues === authUserQues3) {
+                                    if (dislikes[key].answer === authUsersDislikesA[2].answer) points++;
+                                }
                             }
                         }
 
-                        var points = 0;
+
                         if (points === 3) {
                             $rootScope.matches[userCount] = {
                                 grade: "A+",
@@ -85,9 +94,6 @@ myApp.controller('MatchesController', ['$rootScope', '$scope', '$firebaseAuth', 
 
                     console.log("MATCHES MATCHES MATCHES= ");
                     console.log($rootScope.matches);
-
-                    console.log(" - jha - dislikesInfoAR for this user:");
-                    console.log(dislikesInfoAR);
 
                     console.log(" - jha - usersDataAR:");
                     console.log(usersDataAR);

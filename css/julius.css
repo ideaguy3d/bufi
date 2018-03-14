@@ -305,8 +305,13 @@ body {
     color: #2d5a8c !important;
 }
 
+.j-match {
+    margin: 12px 0;
+    padding: 12px;
+    background-color: whitesmoke;
+    border: 1px solid #434343;
+}
+
 /*
 end of CSS file
 */
-
-
