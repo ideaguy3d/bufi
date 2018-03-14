@@ -52,7 +52,6 @@ myApp.controller('MatchesController', ['$rootScope', '$scope', '$firebaseAuth', 
                             }
                         }
 
-
                         if (points === 3) {
                             $rootScope.matches[userCount] = {
                                 grade: "A+",
@@ -73,7 +72,7 @@ myApp.controller('MatchesController', ['$rootScope', '$scope', '$firebaseAuth', 
                             userCount++;
                         } else if (points === 0) {
                             $rootScope.matches[userCount] = {
-                                grade: "no matches :|",
+                                grade: "F",
                                 user: otherUserEmail
                             };
                             userCount++;
@@ -92,7 +91,7 @@ myApp.controller('MatchesController', ['$rootScope', '$scope', '$firebaseAuth', 
 
                     $scope.testBind = "should be set to test bind near matching loop";
 
-                    console.log("MATCHES MATCHES MATCHES= ");
+                    console.log("-----------------> MATCHES MATCHES MATCHES = ");
                     console.log($rootScope.matches);
 
                     console.log(" - jha - usersDataAR:");

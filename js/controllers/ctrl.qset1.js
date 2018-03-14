@@ -53,6 +53,7 @@
 
                 // The sort of Engine that powers this questionnaire
                 $scope.selectAnswer = function (indexQuestion, indexAnswer) {
+                    console.log("jha - in select answer...");
                     // user !authenticated ):
                     if (!$rootScope.currentUser) {
                         console.log(" - jha - user is not authenticated");

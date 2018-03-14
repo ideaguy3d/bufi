@@ -20,17 +20,14 @@
 <div class="card meetings cf">
 	<h2>Your Matches so far...</h2>
 	<h4>Matches: </h4>
-	<p>resolve message {{matchCtrl.matchMessage}}</p>
 	
 	<button data-ng-click="matchCtrl.seeMatches()" style="padding: 20px; font-size: 24px; color: purple">See Matches</button>
 	<br><br>
 	<ul>
 		<li class="j-match" ng-repeat="match in matches">
-			~ {{match.user}} is a Grade {{match.grade}} match
+			<i>{{ match.user }}</i> is a <strong>Grade {{ match.grade }}</strong> match
 		</li>
 	</ul>
 	
-	<br>
-	<hr>
-	<h3>End of matches {{testBind}}</h3>
+	<br><hr>
 </div>

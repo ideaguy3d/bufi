@@ -6,7 +6,7 @@
 		{{ $index === activeQuestion ? 'active' : 'inactive' }}">
 		
 		<!-- The Question -->
-		<h3 class="q-txt">Q: {{ question.question }}</h3>
+		<h3 class="q-txt">{{ question.question }}</h3>
 		
 		<!-- Inner Loop Begins: -->
 		<div class="bf-ans" ng-class="{'image': answer.image, 'selected': isSelected($parent.$index, $index),
