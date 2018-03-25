@@ -22,6 +22,47 @@
         activate();
         setActiveQuestion();
 
+        // The sort of Engine that powers this questionnaire
+        $scope.SelectAnswer = function (indexQuestion, indexAnswer) {
+            console.log("jha - in select answer...");
+            // user is Authenticated
+            if ($scope.AuthSelectAnswer) {
+                $scope.AuthSelectAnswer();
+            }
+            // the user is Unauthenticated
+            else {
+                console.log(" - jha - user is authenticated");
+                $scope.userAnswer = $scope.myQuestions[indexQuestion].answers[indexAnswer].text;
+                var item = {
+                    question: $scope.myQuestions[indexQuestion].question,
+                    answer: $scope.myQuestions[indexQuestion].answers[indexAnswer].text
+                };
+
+                // CRUD create operation to the DB:
+                addAnswerData(item);
+
+                var questionState = $scope.myQuestions[indexQuestion].questionState;
+
+                // questionState is falsey because user has yet to click on an answer
+                if (questionState !== 'answered') {
+                    $scope.myQuestions[indexQuestion].selectedAnswer = indexAnswer;
+                    var correctAnswer = $scope.myQuestions[indexQuestion].correct;
+                    $scope.myQuestions[indexQuestion].correctAnswer = correctAnswer;
+
+                    if (indexAnswer === correctAnswer) {
+                        $scope.myQuestions[indexQuestion].correctness = 'correct';
+                        $scope.score += 1;
+                    } else {
+                        $scope.myQuestions[indexQuestion].correctness = 'incorrect';
+                    }
+                    // now that user has clicked on an answer I now set .questionState
+                    $scope.myQuestions[indexQuestion].questionState = 'answered';
+                }
+            }
+
+            $scope.percentScore = (100 * ($scope.score / $scope.totalQuestions)).toFixed(2);
+        };
+
         // will NOT work at the moment...
         $scope.seeMatchesUnauth = function () {
             if (!$rootScope.currentUser) {
@@ -37,7 +78,9 @@
             $rootScope.matchesAlgo = "Sorry, I didn't complete this algorithm :'( ";
         };
 
+        // -----------------------------------------
         // listen for change to Authentication state
+        // -----------------------------------------
         auth.$onAuthStateChanged(function (authUser) {
             if (authUser) {
                 var numQuestions = 3;
@@ -52,7 +95,7 @@
                 $scope.meetings = authUsersInfoAR;
 
                 // The sort of Engine that powers this questionnaire
-                $scope.selectAnswer = function (indexQuestion, indexAnswer) {
+                $scope.AuthSelectAnswer = function (indexQuestion, indexAnswer) {
                     console.log("jha - in select answer...");
                     // user !authenticated ):
                     if (!$rootScope.currentUser) {
