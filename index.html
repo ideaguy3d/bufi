@@ -23,7 +23,7 @@
 <div class="page">
 	<div class="userinfo" ng-show="currentUser" ng-controller="RegistrationController">
 		<span class="userinfo">Welcome {{ currentUser.firstname }}</span>
-		<a ng-href="#/login" ng-click="logout()">Logout</a>
+		<a data-ng-href="#/login" data-ng-click="logout()">Logout</a>
 	</div>
 	
 	<!-- app entry point -->

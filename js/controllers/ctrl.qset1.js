@@ -23,11 +23,11 @@
         setActiveQuestion();
 
         // The sort of Engine that powers this questionnaire
-        $scope.SelectAnswer = function (indexQuestion, indexAnswer) {
+        $scope.selectAnswer = function (indexQuestion, indexAnswer) {
             console.log("jha - in select answer...");
             // user is Authenticated
-            if ($scope.AuthSelectAnswer) {
-                $scope.AuthSelectAnswer();
+            if ($scope.authSelectAnswer) {
+                $scope.authSelectAnswer(indexQuestion, indexAnswer);
             }
             // the user is Unauthenticated
             else {
@@ -39,7 +39,7 @@
                 };
 
                 // CRUD create operation to the DB:
-                addAnswerData(item);
+                // addAnswerData(item);
 
                 var questionState = $scope.myQuestions[indexQuestion].questionState;
 
@@ -95,7 +95,7 @@
                 $scope.meetings = authUsersInfoAR;
 
                 // The sort of Engine that powers this questionnaire
-                $scope.AuthSelectAnswer = function (indexQuestion, indexAnswer) {
+                $scope.authSelectAnswer = function (indexQuestion, indexAnswer) {
                     console.log("jha - in select answer...");
                     // user !authenticated ):
                     if (!$rootScope.currentUser) {
