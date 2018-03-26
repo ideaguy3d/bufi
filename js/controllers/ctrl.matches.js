@@ -1,6 +1,6 @@
 myApp.controller('MatchesController', ['$rootScope', '$scope', '$firebaseAuth', '$firebaseArray',
-    'matchMessage', 'jBufiDataSer',
-    function ($rootScope, $scope, $firebaseAuth, $firebaseArray, matchMessage, jBufiDataSer) {
+    'matchMessage', 'jBufiDataSer', '$location',
+    function ($rootScope, $scope, $firebaseAuth, $firebaseArray, matchMessage, jBufiDataSer, $location) {
         var vm = this;
         var ref = firebase.database().ref();
         var auth = $firebaseAuth();
@@ -12,6 +12,10 @@ myApp.controller('MatchesController', ['$rootScope', '$scope', '$firebaseAuth', 
         vm.seeMatches = function () {
             if (vm.authUserMatches) {
                 vm.authUserMatches();
+            }
+
+            if(!$rootScope.currentUser) {
+                $location.url("/register");
             }
 
             console.log("Unauth users answers = ");
