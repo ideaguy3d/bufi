@@ -5,10 +5,11 @@
         "$location", "jBufiDataSer", "$firebaseAuth", "$firebaseArray", "$firebaseObject",
         QuestionSetOneCtrlClass]);
 
-    function QuestionSetOneCtrlClass($rootScope, $scope, $location, jBufiDataSer, $firebaseAuth, $firebaseArray,
-                                     $firebaseObject) {
-        var vm = this;
+    function QuestionSetOneCtrlClass($rootScope, $scope, $location, jBufiDataSer, $firebaseAuth,
+                                     $firebaseArray, $firebaseObject) {
         var addAnswerData;
+
+        var vm = this;
         vm.message = "QuestionSetOneCtrl wired up!";
 
         var ref = firebase.database().ref();
@@ -38,7 +39,10 @@
                     answer: $scope.myQuestions[indexQuestion].answers[indexAnswer].text
                 };
 
+                jBufiDataSer.setUnauthUserAnswers(item);
+
                 // CRUD create operation to the DB:
+                // should only be saved to db if user is auth.
                 // addAnswerData(item);
 
                 var questionState = $scope.myQuestions[indexQuestion].questionState;

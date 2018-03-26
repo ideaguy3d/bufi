@@ -1,5 +1,6 @@
-myApp.controller('MatchesController', ['$rootScope', '$scope', '$firebaseAuth', '$firebaseArray', 'matchMessage',
-    function ($rootScope, $scope, $firebaseAuth, $firebaseArray, matchMessage) {
+myApp.controller('MatchesController', ['$rootScope', '$scope', '$firebaseAuth', '$firebaseArray',
+    'matchMessage', 'jBufiDataSer',
+    function ($rootScope, $scope, $firebaseAuth, $firebaseArray, matchMessage, jBufiDataSer) {
         var vm = this;
         var ref = firebase.database().ref();
         var auth = $firebaseAuth();
@@ -7,6 +8,15 @@ myApp.controller('MatchesController', ['$rootScope', '$scope', '$firebaseAuth', 
         vm.matchMessage = matchMessage;
 
         $scope.message = "meeting data";
+
+        vm.seeMatches = function () {
+            if (vm.authUserMatches) {
+                vm.authUserMatches();
+            }
+
+            console.log("Unauth users answers = ");
+            console.log(jBufiDataSer.getUnauthUserAnswers());
+        };
 
         auth.$onAuthStateChanged(function (authUser) {
             if (authUser) {
@@ -18,7 +28,7 @@ myApp.controller('MatchesController', ['$rootScope', '$scope', '$firebaseAuth', 
                 var dislikesRef = authUsersInfoRef.child("dislikes");
                 var authUsersDislikesA = $firebaseArray(dislikesRef);
 
-                vm.seeMatches = function () {
+                vm.authUserMatches = function () {
                     var keyCount = 0;
                     var userCount = 0;
 
