@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "redstone",
+    "redstone": "redstoneautomation"
+  }
+}
