@@ -1,0 +1,25 @@
+<div>
+    <div class="header"><h1>{{ messagesCtrl.channelName }}</h1></div>
+
+    <!-- The Actual list of channel messages -->
+    <div class="message-wrap" ng-repeat="message in messagesCtrl.messages">
+        <img ng-src="{{ channelsCtrl.getGravatar(message.uid) }}" alt="avatar" class="user-pic">
+        <div class="message-info">
+            <div class="user-name">
+                {{ channelsCtrl.getDisplayName(message.uid) }}
+                <span class="timestamp">{{ message.timestamp | date:'short' }}</span>
+            </div>
+            <div class="message">{{ message.body }}</div>
+        </div>
+    </div>
+
+    <!-- input form to send instant messages in the channel -->
+    <form class="message-form" ng-submit="messagesCtrl.sendMessage()">
+        <div class="input-group">
+            <input type="text" class="form-control" ng-model="messagesCtrl.message" placeholder="message...">
+            <span class="input-group-btn">
+				<button class="btn btn-default" type="submit">Send</button>
+			</span>
+        </div>
+    </form>
+</div>

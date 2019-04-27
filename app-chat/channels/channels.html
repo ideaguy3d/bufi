@@ -1,0 +1,52 @@
+<div class="main">
+	<div class="sidebar">
+		<div class="slack-name">
+			<h2>Julius Chat App</h2>
+		</div>
+		
+		<div class="channel-list">
+			<div class="list-head">Channels</div>
+			<!-- iterating over channels here: -->
+			<div class="channel" ng-repeat="channel in channelsCtrl.channels">
+				<a ui-sref="channels.messages({channelId: channel.$id})"
+				   ui-sref-active="selected">#{{ channel.name }}</a>
+			</div>
+			<div class="channel create">
+				<a ui-sref="channels.create">+ createChannel</a>
+			</div>
+			
+			<!-- side menu Direct Messages area -->
+			<div class="list-head">Direct Messages</div>
+			<div class="channel" ng-repeat="user in channelsCtrl.users">
+				<a ng-if="user.$id !== channelsCtrl.profile.$id" ui-sref="channels.direct({uid: user.$id})"
+				        ui-sref-active="selected">
+					<span class="presence" ng-class="{online: user.online}"></span>
+					{{ user.displayName }}
+				</a>
+			</div>
+		</div>
+		
+		<!-- the user info at the bottom of the side menu -->
+		<div class="my-info">
+			<img alt="user-img" class="user-pic" ng-src="{{ channelsCtrl.getGravatar(channelsCtrl.profile.$id) }}">
+			
+			<div class="user-info">
+				<div class="user-name">
+					<span class="presence" ng-class="{online: channelsCtrl.profile.online}"></span>
+					{{ channelsCtrl.profile.displayName }}
+				</div>
+				
+				<div class="options">
+					<a href="" ui-sref="profile">Edit Profile</a> /
+					<a href="" ng-click="channelsCtrl.logout()">Logout</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- IMPORTANT: a "Child View" begins here -->
+	<div class="message-pane">
+		<ui-view></ui-view>
+	</div>
+</div>
+

@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Unison | Material Design Portfolio Template</title>
+
+  <!--SEO Meta Tags-->
+  <meta name="description" content="Unison Material Design Portfolio Template" />
+  <meta name="keywords" content="material design, portfolio, technology, business, corporate, hosting, web, startup, app showcase, mobile, blog, anding, shortcodes, html5, css3, jquery, js, gallery, slider, touch, creative" />
+  <meta name="author" content="8Guild" />
+
+  <!--Mobile Specific Meta Tag-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- All Theme Styles including Bootstrap, FontAwesome, etc. compiled from styles.scss-->
+  <link href="css/styles.min.css" rel="stylesheet" media="screen">
+
+  <!-- Page Preloading -->
+  <script src="js/vendor/page-preloading.js"></script>
+
+  <!--Modernizr / Detectizr-->
+  <script src="js/vendor/modernizr.custom.js"></script>
+  <script src="js/vendor/detectizr.min.js"></script>
+</head>
+
+<!-- Body -->
+<!-- Adding/Removing class ".parallax" is enabling/disabling background parallax effect on elements with background images and attributes data-stellar-background-ratio applied to them. Make sure you also added/removed link to stellar.js script before </body>. -->
+<!-- Adding/Removing class ".page-preloading" is enabling/disabling background smooth page transition effect and spinner. Make sure you also added/removed link to page-preloading.js script before </body> and ".page-preloader" right after <body> tag. -->
+<body class="parallax page-preloading">
+
+  <!-- Page Pre-Loader -->
+  <div class="page-preloader">
+    <div class="spinner-wrap">
+      <div class="mdl-spinner mdl-js-spinner is-active"></div>
+    </div>
+  </div>
+
+  <!-- Page Wrapper -->
+  <div class="page-wrapper">
+
+    <!-- Floating Header -->
+    <header class="floating-header">
+
+      <!-- Site Logo -->
+      <a href="index.html" class="site-logo">
+        <img src="img/floating-logo.png" alt="Unison">
+      </a><!-- .floating-logo -->
+
+      <!-- Floating Menu -->
+      <div class="floating-menu-btn">
+        <div class="floating-menu-toggle-wrap">
+          <div class="floating-menu-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div><!-- .floating-menu-toggle -->
+        </div><!-- .floating-menu-toggle-wrap -->
+      </div><!-- .floating-menu-btn -->
+
+      <div class="main-navigation-wrap">
+        <nav class="main-navigation" data-back-btn-text="Back">
+          <ul class="menu">
+            <li class="menu-item-has-children current-menu-item">
+              <a href="#">Home</a>
+              <ul class="sub-menu">
+                <li class="current-menu-item"><a href="index.html">Home Design Agency</a></li>
+                <li><a href="home-architecture.html">Home Architecture</a></li>
+                <li><a href="home-photographer.html">Home Photographer</a></li>
+              </ul>
+            </li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contacts.html">Contacts</a></li>
+            <li><a href="elements.html">Elements</a></li>
+          </ul><!-- .menu -->
+        </nav><!-- .main-navigation -->
+      </div><!-- .main-navigation-wrap -->
+    </header><!-- .floating-header -->
+
+    <!-- Hero -->
+    <section class="fw-section bg-parallax" style="background-image: url(img/home/hero.jpg); padding-bottom: 170px;" data-stellar-background-ratio="0.65" data-stellar-vertical-offset="50">
+      <div class="container text-light">
+        <h1 class="text-huge">We're an independant design &amp; development agency.</h1>
+        <p class="text-lg"><span class="text-underline">84 people</span> <span class="opacity-80">in</span> <span class="text-underline">3 offices</span><span class="opacity-80">, creating beautiful software for 10 years.</span></p>
+        <div class="row padding-top-3x padding-bottom-2x">
+          <div class="col-lg-9 col-lg-offset-3 col-md-10 col-md-offset-2">
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="text-box">
+                  <h3 class="text-box-title">Brand &amp; Identity</h3>
+                  <p class="text-box-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta sed aspernatur provident quaerat, libero suscipit.</p>
+                  <a href="#" class="btn btn-light-transparent btn-default btn-icon-right waves-effect">
+                    More
+                    <i class="material-icons trending_flat"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="text-box">
+                  <h3 class="text-box-title">Product Design</h3>
+                  <p class="text-box-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta sed aspernatur provident quaerat, libero suscipit.</p>
+                  <a href="#" class="btn btn-light-transparent btn-default btn-icon-right waves-effect">
+                    More
+                    <i class="material-icons trending_flat"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="text-box">
+                  <h3 class="text-box-title">Video Production</h3>
+                  <p class="text-box-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta sed aspernatur provident quaerat, libero suscipit.</p>
+                  <a href="#" class="btn btn-light-transparent btn-default btn-icon-right waves-effect">
+                    More
+                    <i class="material-icons trending_flat"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- .row -->
+      </div><!-- .container -->
+    </section><!-- .fw-section -->
+
+    <!-- Featured Projects -->
+    <section class="container block-relative" style="margin-top: -170px; z-index: 1;">
+      <!-- block-title: Possible color classes ".block-title-default, .block-title-primary, .block-title-secondary, .block-title-success, .block-title-info, .block-title-warning, .block-title-danger, .block-title-light". -->
+      <h2 class="block-title block-title-light">
+        <i class="material-icons trending_flat"></i>
+        Featured Projects
+      </h2><!-- .block-title -->
+      <div class="row">
+        <div class="col-sm-4">
+          <a href="portfolio.html" class="portfolio-tile text-light" style="background-image: url(img/portfolio/01.jpg);">
+            <div class="project-info">
+              <h3 class="project-title">PS-HX500</h3>
+              <h4 class="project-meta">February 2016</h4>
+            </div>
+            <span class="portfolio-badge badge-floating">
+              <i class="material-icons visibility"></i>
+            </span>
+          </a><!-- .portfolio-tile -->
+        </div><!-- .col-sm-4 -->
+        <div class="col-sm-4">
+          <a href="portfolio.html" class="portfolio-tile" style="background-image: url(img/portfolio/02.jpg);">
+            <div class="project-info">
+              <h3 class="project-title">Air Jordan</h3>
+              <h4 class="project-meta">September 2015</h4>
+            </div>
+            <span class="portfolio-badge badge-floating">
+              <i class="material-icons visibility"></i>
+            </span>
+          </a><!-- .portfolio-tile -->
+        </div><!-- .col-sm-4 -->
+        <div class="col-sm-4">
+          <a href="portfolio.html" class="portfolio-tile text-light" style="background-image: url(img/portfolio/03.jpg);">
+            <div class="project-info">
+              <h3 class="project-title">Vacuum Cleaner</h3>
+              <h4 class="project-meta">July 2014</h4>
+            </div>
+            <span class="portfolio-badge">
+              <i class="material-icons play_arrow"></i>
+            </span>
+            <span class="portfolio-badge badge-floating">
+              <i class="material-icons visibility"></i>
+            </span>
+          </a><!-- .portfolio-tile -->
+        </div><!-- .col-sm-4 -->
+      </div><!-- .row -->
+      <!-- Add ".block-divider-light" class to alter light skin -->
+      <div class="block-divider"></div>
+    </section><!-- .container -->
+
+    <!-- Services -->
+    <section class="container padding-top-3x padding-bottom">
+      <!-- block-title: Possible color classes ".block-title-default, .block-title-primary, .block-title-secondary, .block-title-success, .block-title-info, .block-title-warning, .block-title-danger, .block-title-light". -->
+      <h2 class="block-title block-title-secondary space-top">
+        <i class="material-icons trending_flat"></i>
+        We are a design partner
+      </h2><!-- .block-title -->
+      <div class="row mobile-center">
+        <div class="col-lg-5 col-md-6 scrollReveal sr-left">
+          <!-- Nav Tabs -->
+          <ul class="nav-tabs" role="tablist">
+            <li class="active"><a href="#collaboration" role="tab" data-toggle="tab">Collaboration</a></li>
+            <li><a href="#exploration" role="tab" data-toggle="tab">Exploration</a></li>
+            <li><a href="#proactivity" role="tab" data-toggle="tab">Proactivity</a></li>
+          </ul><!-- .nav-tabs -->
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane transition fade scale in active" id="collaboration">
+              <p>The world has become so fast paced that people don’t want to stand by reading a page of information.</p>
+              <p class="text-gray">Many conventional colleges and universities are now offering online DVD repair courses, which are the exact same as those taught on a traditional college campus, to distance learners. Online education is generally taught through the use of several different methods, including online satellite feeds.</p>
+            </div>
+            <div role="tabpanel" class="tab-pane transition fade scale" id="exploration">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic libero mollitia.</p>
+              <p class="text-gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus molestiae, similique excepturi ex iste aut necessitatibus suscipit, eius, commodi dolor quas quisquam labore, laborum cum vitae enim eligendi distinctio quia. Minus porro est sunt rem quas, modi, eaque! Officiis blanditiis, eos delectus optio.</p>
+            </div>
+            <div role="tabpanel" class="tab-pane transition fade scale" id="proactivity">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic libero mollitia.</p>
+              <p class="text-gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus molestiae, similique excepturi ex iste aut necessitatibus suscipit, eius, commodi dolor quas quisquam labore, laborum cum vitae enim eligendi distinctio quia. Minus porro est sunt rem quas, modi, eaque! Officiis blanditiis, eos delectus optio.</p>
+            </div>
+          </div><!-- .tab-content -->
+          <a href="#" class="btn btn-ghost btn-primary waves-effect waves-light space-top-none">We believe in</a>
+        </div><!-- .col-lg-5.col-md-6 -->
+        <div class="col-lg-6 col-lg-offset-1 col-md-6 padding-top-2x">
+          <div class="row">
+            <div class="col-sm-4 scrollReveal sr-scaleUp sr-ease-in-out-back">
+              <div class="box-with-icon text-center">
+                <i class="flaticon-open-book-with-bookmark"></i>
+                <h3 class="bwi-title">Branding</h3>
+                <p>Lorem ipsum dolor sit amet elit.</p>
+              </div>
+            </div>
+            <div class="col-sm-4 scrollReveal sr-scaleUp sr-delay-1 sr-ease-in-out-back">
+              <div class="box-with-icon text-center">
+                <i class="flaticon-editor-pencil"></i>
+                <h3 class="bwi-title">Design</h3>
+                <p>Lorem ipsum dolor sit amet elit.</p>
+              </div>
+            </div>
+            <div class="col-sm-4 scrollReveal sr-scaleUp sr-delay-2 sr-ease-in-out-back">
+              <div class="box-with-icon text-center">
+                <i class="flaticon-inclined-rocket"></i>
+                <h3 class="bwi-title">Motion</h3>
+                <p>Lorem ipsum dolor sit amet elit.</p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4 scrollReveal sr-scaleUp sr-delay-3 sr-ease-in-out-back">
+              <div class="box-with-icon text-center">
+                <i class="flaticon-line-stats"></i>
+                <h3 class="bwi-title">Advertising</h3>
+                <p>Lorem ipsum dolor sit amet elit.</p>
+              </div>
+            </div>
+            <div class="col-sm-4 scrollReveal sr-scaleUp sr-delay-4 sr-ease-in-out-back">
+              <div class="box-with-icon text-center">
+                <i class="flaticon-big-towers"></i>
+                <h3 class="bwi-title">Strategy</h3>
+                <p>Lorem ipsum dolor sit amet elit.</p>
+              </div>
+            </div>
+            <div class="col-sm-4 scrollReveal sr-scaleUp sr-delay-5 sr-ease-in-out-back">
+              <div class="box-with-icon text-center">
+                <i class="flaticon-public-speech"></i>
+                <h3 class="bwi-title">Consultancy</h3>
+                <p>Lorem ipsum dolor sit amet elit.</p>
+              </div>
+            </div>
+          </div>
+        </div><!-- .col-lg-6.col-lg-offset-1.col-md-6 -->
+      </div><!-- .row -->
+    </section><!-- .container -->
+
+    <!-- VR Experience -->
+    <section class="fw-section bg-no-cover space-top-3x padding-top-3x padding-bottom-3x" style="background-color: #f6f6f6; background-image: url(img/home/vr.jpg);">
+      <div class="container padding-top-3x padding-bottom-3x">
+        <!-- block-title: Possible color classes ".block-title-default, .block-title-primary, .block-title-secondary, .block-title-success, .block-title-info, .block-title-warning, .block-title-danger, .block-title-light". -->
+        <h2 class="block-title block-title-secondary">
+          <i class="material-icons trending_flat"></i>
+          We made a VR out of office litter
+        </h2><!-- .block-title -->
+        <div class="row">
+          <div class="col-lg-4 col-md-5 col-sm-6">
+            <h3 class="h1 text-thin">Great VR Experience</h3>
+            <p class="text-gray">You should be able to find several indispensable facts about motivation in the following paragraphs. If there’s at least one fact you didn’t know before, imagine the difference it might make. It’s so difficult to go on when everything seems to fail, isn’t it?</p>
+            <a href="#" class="btn btn-primary waves-effect waves-light">Explore case</a>
+          </div>
+        </div><!-- .row -->
+      </div><!-- .container -->
+    </section><!-- .fw-section -->
+
+    <!-- Clients / Testimonials -->
+    <section class="container padding-top-3x padding-bottom-3x">
+      <!-- block-title: Possible color classes ".block-title-default, .block-title-primary, .block-title-secondary, .block-title-success, .block-title-info, .block-title-warning, .block-title-danger, .block-title-light". -->
+      <h2 class="block-title space-top block-title-secondary">
+        <i class="material-icons trending_flat"></i>
+        They trust us, and vice versa
+      </h2><!-- .block-title -->
+      <div class="row mobile-center">
+        <div class="col-sm-4 scrollReveal sr-bottom">
+          <div class="client">
+            <img src="img/clients/01.svg" alt="Client">
+            <p class="text"><i class="material-icons trending_flat"></i><span>Lorem ipsum dolor sit amet, consecteturxcc adipisicing elit omnis perspiciatis.</span></p>
+          </div><!-- .client -->
+        </div><!-- .col-sm-4 -->
+        <div class="col-sm-4 scrollReveal sr-bottom sr-delay-1">
+          <div class="client">
+            <img src="img/clients/02.svg" alt="Client">
+            <p class="text"><i class="material-icons trending_flat"></i><span>Lorem ipsum dolor sit amet, consecteturxcc adipisicing elit omnis.</span></p>
+          </div><!-- .client -->
+        </div><!-- .col-sm-4 -->
+        <div class="col-sm-4 scrollReveal sr-bottom sr-delay-2">
+          <div class="client">
+            <img src="img/clients/03.svg" alt="Client">
+            <p class="text"><i class="material-icons trending_flat"></i><span>Lorem ipsum dolor sit amet, consecteturxcc adipisicing elit omnis perspiciatis.</span></p>
+          </div><!-- .client -->
+        </div><!-- .col-sm-4 -->
+      </div><!-- .row -->
+      <div class="row mobile-center">
+        <div class="col-sm-4 scrollReveal sr-bottom sr-delay-3">
+          <div class="client">
+            <img src="img/clients/04.svg" alt="Client">
+            <p class="text"><i class="material-icons trending_flat"></i><span>Lorem ipsum dolor sit amet, consecteturxcc adipisicing elit omnis.</span></p>
+          </div><!-- .client -->
+        </div><!-- .col-sm-4 -->
+        <div class="col-sm-4 scrollReveal sr-bottom sr-delay-4">
+          <div class="client">
+            <img src="img/clients/05.svg" alt="Client">
+            <p class="text"><i class="material-icons trending_flat"></i><span>Lorem ipsum dolor sit amet, consecteturxcc adipisicing elit omnis perspiciatis.</span></p>
+          </div><!-- .client -->
+        </div><!-- .col-sm-4 -->
+        <div class="col-sm-4 scrollReveal sr-bottom sr-delay-5">
+          <div class="client">
+            <img src="img/clients/06.svg" alt="Client">
+            <p class="text"><i class="material-icons trending_flat"></i><span>Lorem ipsum dolor sit amet, consecteturxcc adipisicing elit omnis.</span></p>
+          </div><!-- .client -->
+        </div><!-- .col-sm-4 -->
+      </div><!-- .row -->
+
+      <!-- Testimonials carousel -->
+      <!-- Data API:
+        data-loop="true/false" enable/disable looping
+        data-autoplay="true/false" enable/disable carousel autoplay
+        data-interval="3000" autoplay interval timeout in miliseconds
+        Simply add necessary data attribute to the ".testimonials-carousel" with appropriate value to adjust carousel functionality.
+       -->
+      <div class="testimonials-carousel space-top space-bottom">
+        <div class="author-img">
+          <span class="active" id="auth01" style="background-image: url(img/testimonials/01.jpg);"></span>
+          <span id="auth02" style="background-image: url(img/testimonials/02.jpg);"></span>
+          <span id="auth03" style="background-image: url(img/testimonials/03.jpg);"></span>
+          <span id="auth04" style="background-image: url(img/testimonials/04.jpg);"></span>
+          <span id="auth05" style="background-image: url(img/testimonials/05.jpg);"></span>
+        </div>
+        <div class="testimonial">
+          <div class="inner">
+            <blockquote data-author-id="auth01">
+              <p>By automating routine checks and corrections, our tools speed up production, freeing developers to grow, discover and create.</p>
+              <cite>Rachel Robinson<span>CEO 8Guild Inc.</span></cite>
+            </blockquote>
+            <blockquote data-author-id="auth02">
+              <p>By automating routine checks and corrections, our tools speed up production, freeing developers to grow, discover and create.</p>
+              <cite>Nina Tyler<span>HR Manager 8Guild Inc.</span></cite>
+            </blockquote>
+            <blockquote data-author-id="auth03">
+              <p>By automating routine checks and corrections, our tools speed up production, freeing developers to grow, discover and create.</p>
+              <cite>Seth Holloway<span>CTO 8Guild Inc.</span></cite>
+            </blockquote>
+            <blockquote data-author-id="auth04">
+              <p>By automating routine checks and corrections, our tools speed up production, freeing developers to grow, discover and create.</p>
+              <cite>Aiden Morgan<span>Senior PHP 8Guild Inc.</span></cite>
+            </blockquote>
+            <blockquote data-author-id="auth05">
+              <p>By automating routine checks and corrections, our tools speed up production, freeing developers to grow, discover and create.</p>
+              <cite>Ophelia Maldonado<span>Lead Designer 8Guild Inc.</span></cite>
+            </blockquote>
+          </div>
+        </div>
+      </div><!-- .testimonials-carousel -->
+    </section><!-- .container -->
+
+    <!-- Contact Form -->
+    <section class="fw-section bg-no-cover padding-top-3x padding-bottom-3x" style="background-color: #5e72ec; background-image: url(img/home/contact-form-bg.jpg);">
+      <div class="container">
+        <!-- block-title: Possible color classes ".block-title-default, .block-title-primary, .block-title-secondary, .block-title-success, .block-title-info, .block-title-warning, .block-title-danger, .block-title-light". -->
+        <h2 class="block-title space-top block-title-light">
+          <i class="material-icons trending_flat"></i>
+          We'd love to hear about your project!
+        </h2><!-- .block-title -->
+        <!-- Contact form -->
+        <form method="post" class="ajax-form space-bottom" autocomplete="off">
+          <div class="row">
+            <div class="col-md-9">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-input form-input-light">
+                    <input type="text" name="name" id="cf_name">
+                    <label for="cf_name">Name</label>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-input form-input-light">
+                    <input type="email" name="email" id="cf_email">
+                    <label for="cf_email">Email</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-9 col-sm-8">
+                  <div class="form-input form-textarea form-input-light">
+                    <textarea name="message" id="cf_message" rows="2"></textarea>
+                    <label for="cf_message">Message</label>
+                  </div>
+                  <div class="response-holder"></div>
+                </div>
+                <div class="col-md-3 col-sm-4">
+                  <button type="submit" class="btn btn-primary btn-icon-right btn-block waves-effect waves-light">
+                    Send
+                    <i class="material-icons send"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div><!-- .row -->
+        </form><!-- .ajax-form -->
+      </div><!-- .container -->
+    </section><!-- .fw-section -->
+
+    <!-- Team -->
+    <section class="container padding-top-3x padding-bottom-3x">
+      <!-- block-title: Possible color classes ".block-title-default, .block-title-primary, .block-title-secondary, .block-title-success, .block-title-info, .block-title-warning, .block-title-danger, .block-title-light". -->
+      <h2 class="block-title block-title-secondary">
+        <i class="material-icons trending_flat"></i>
+        Selfies. Our People
+      </h2><!-- .block-title -->
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="team-tile">
+            <div class="info">
+              <h3>Aiden Morgan</h3>
+              <h4>CEO 8Guild</h4>
+            </div>
+            <img src="img/team/01.jpg" alt="Team">
+            <div class="social-bar-circle text-right">
+              <a href="#" class="sb-skype waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Skype">
+                <i class="fa fa-skype"></i>
+              </a>
+              <a href="#" class="sb-facebook waves-effect waves-light waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Facebook">
+                <i class="fa fa-facebook"></i>
+              </a>
+              <a href="#" class="sb-google-plus waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Google+">
+                <i class="fa fa-google-plus"></i>
+              </a>
+            </div>
+          </div><!-- .team-tile -->
+        </div><!-- .col-sm-4 -->
+        <div class="col-sm-4">
+          <div class="team-tile">
+            <div class="info">
+              <h3>Tom Smith</h3>
+              <h4>Lead Designer</h4>
+            </div>
+            <img src="img/team/02.jpg" alt="Team">
+            <div class="social-bar-circle text-right">
+              <a href="#" class="sb-link waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Link">
+                <i class="fa fa-link"></i>
+              </a>
+              <a href="#" class="sb-twitter waves-effect waves-light waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Twitter">
+                <i class="fa fa-twitter"></i>
+              </a>
+              <a href="#" class="sb-behance waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Behance">
+                <i class="fa fa-behance"></i>
+              </a>
+            </div>
+          </div><!-- .team-tile -->
+        </div><!-- .col-sm-4 -->
+        <div class="col-sm-4">
+          <div class="team-tile">
+            <div class="info">
+              <h3>Helen Shelton</h3>
+              <h4>Senior PHP Dev</h4>
+            </div>
+            <img src="img/team/03.jpg" alt="Team">
+            <div class="social-bar-circle text-right">
+              <a href="#" class="sb-skype waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Skype">
+                <i class="fa fa-skype"></i>
+              </a>
+              <a href="#" class="sb-linkedin waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="LinkedIn">
+                <i class="fa fa-linkedin"></i>
+              </a>
+              <a href="#" class="sb-stackoverflow waves-effect waves-light waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Stack Overflow">
+                <i class="fa fa-stack-overflow"></i>
+              </a>
+            </div>
+          </div><!-- .team-tile -->
+        </div><!-- .col-sm-4 -->
+        <div class="col-sm-4">
+          <div class="team-tile">
+            <div class="info">
+              <h3>Seth Holloway</h3>
+              <h4>CTO 8Guild</h4>
+            </div>
+            <img src="img/team/04.jpg" alt="Team">
+            <div class="social-bar-circle text-right">
+              <a href="#" class="sb-link waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Link">
+                <i class="fa fa-link"></i>
+              </a>
+              <a href="#" class="sb-twitter waves-effect waves-light waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Twitter">
+                <i class="fa fa-twitter"></i>
+              </a>
+              <a href="#" class="sb-facebook waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Facebook">
+                <i class="fa fa-facebook"></i>
+              </a>
+            </div>
+          </div><!-- .team-tile -->
+        </div><!-- .col-sm-4 -->
+        <div class="col-sm-4">
+          <div class="team-tile">
+            <div class="info">
+              <h3>Nina Tyler</h3>
+              <h4>HR Manager</h4>
+            </div>
+            <img src="img/team/05.jpg" alt="Team">
+            <div class="social-bar-circle text-right">
+              <a href="#" class="sb-linkedin waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="LinkedIn">
+                <i class="fa fa-linkedin"></i>
+              </a>
+              <a href="#" class="sb-google-plus waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Google+">
+                <i class="fa fa-google-plus"></i>
+              </a>
+              <a href="#" class="sb-twitter waves-effect waves-light waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Twitter">
+                <i class="fa fa-twitter"></i>
+              </a>
+            </div>
+          </div><!-- .team-tile -->
+        </div><!-- .col-sm-4 -->
+        <div class="col-sm-4">
+          <div class="team-tile">
+            <div class="info">
+              <h3>Ophelia Maldonado</h3>
+              <h4>Java Developers</h4>
+            </div>
+            <img src="img/team/06.jpg" alt="Team">
+            <div class="social-bar-circle text-right">
+              <a href="#" class="sb-stackoverflow waves-effect waves-light waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Stack Overflow">
+                <i class="fa fa-stack-overflow"></i>
+              </a>
+              <a href="#" class="sb-steam waves-effect waves-light waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Steam">
+                <i class="fa fa-steam"></i>
+              </a>
+              <a href="#" class="sb-skype waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Skype">
+                <i class="fa fa-skype"></i>
+              </a>
+            </div>
+          </div><!-- .team-tile -->
+        </div><!-- .col-sm-4 -->
+      </div><!-- .row -->
+    </section><!-- .container -->
+
+    <!-- Scroll To Top Button -->
+    <a href="#" class="scroll-to-top-btn">
+      <i class="material-icons keyboard_arrow_up"></i>
+    </a><!-- .scroll-to-top-btn -->
+
+    <!-- Footer -->
+    <footer class="footer footer-alt">
+
+      <!-- Main footer -->
+      <div class="footer-main fw-table">
+        <div class="inner">
+          <div class="column">
+            <div class="widget widget_copyright">
+              <a href="index.html" class="footer-logo" style="max-width: 79px;">
+                <img src="img/footer-logo.png" alt="Unison">
+              </a>
+              <p class="copyright-text">Unison. 2016.<br> Made by 8Guild with <i class="fa fa-heart"></i></p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="widget widget_menu">
+              <ul>
+                <li class="current-menu-item"><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contacts.html">Contacts</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="column">
+            <div class="widget widget_socials">
+              <div class="social-bar">
+                <a href="#" class="sb-steam" data-toggle="tooltip" data-placement="top" title="Steam">
+                  <i class="fa fa-steam"></i>
+                </a>
+                <a href="#" class="sb-vimeo" data-toggle="tooltip" data-placement="top" title="Vimeo">
+                  <i class="fa fa-vimeo"></i>
+                </a>
+                <a href="#" class="sb-twitter" data-toggle="tooltip" data-placement="top" title="Twitter">
+                  <i class="fa fa-twitter"></i>
+                </a>
+                <a href="#" class="sb-facebook" data-toggle="tooltip" data-placement="top" title="Facebook">
+                  <i class="fa fa-facebook"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- .footer-main -->
+    </footer><!-- .footer -->
+
+  </div><!-- .page-wrapper -->
+
+  <!-- JavaScript (jQuery) libraries, plugins and custom scripts -->
+  <script src="js/vendor/jquery-2.1.4.min.js"></script>
+  <script src="js/vendor/jquery.easing.min.js"></script>
+  <script src="js/vendor/bootstrap.min.js"></script>
+  <script src="js/vendor/waves.min.js"></script>
+  <script src="js/vendor/smoothscroll.js"></script>
+  <script src="js/vendor/jquery.stellar.min.js"></script>
+  <script src="js/vendor/waypoints.min.js"></script>
+  <script src="js/vendor/velocity.min.js"></script>
+  <script src="js/vendor/owl.carousel.min.js"></script>
+  <script src="js/vendor/scrollreveal.min.js"></script>
+  <script src="mailer/mailer.js"></script>
+  <script src="js/scripts.js"></script>
+
+</body><!-- <body> -->
+
+</html>

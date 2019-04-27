@@ -1,0 +1,39 @@
+<div style="height: 90%;" layout="column">
+	<md-toolbar layout="row">
+		<md-button ng-click="contacts.toggleList()" hide-gt-sm="" aria-label="Shower User List">
+			<md-icon md-svg-src="images/svg/menu.svg"></md-icon>
+		</md-button>
+		<h1 class="text-center">EdHub.co App</h1>
+	</md-toolbar>
+	
+	<div class="j-container" layout="row" flex>
+		<!-- Side Navigation -->
+		<md-sidenav md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-4dp"
+				md-component-id="leftnav">
+			<md-list ng-click="contacts.toggleList()">
+				<md-list-item ng-repeat="user in contacts.users">
+					<md-button ng-click="contacts.selectUser(user)">
+						<md-icon md-svg-src="images/svg/{{user.avatar}}.svg" class="avatar"></md-icon>
+						{{ user.displayName }}
+					</md-button>
+				</md-list-item>
+			</md-list>
+		</md-sidenav>
+		<!-- Main Content Area -->
+		<md-content id="content-contacts" flex>
+			<md-button ng-if="contacts.selected.avatar" class="share" md-no-ink=""
+			           aria-label="share with {{ ul.selected.displayName }}"
+					ng-click="contacts.share()">
+				<md-icon md-svg-icon="share"></md-icon>
+				Share
+			</md-button>
+			<md-icon ng-if="contacts.selected.avatar" md-svg-src="images/svg/{{contacts.selected.avatar}}.svg"
+			         class="avatar"></md-icon>
+			
+			<h2>{{ contacts.selected.displayName }}</h2>
+			
+			<p>{{ contacts.selected.content }}</p>
+		</md-content>
+	</div>
+
+</div>

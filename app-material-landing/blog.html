@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Unison | Material Design Portfolio Template</title>
+
+  <!--SEO Meta Tags-->
+  <meta name="description" content="Unison Material Design Portfolio Template" />
+  <meta name="keywords" content="material design, portfolio, technology, business, corporate, hosting, web, startup, app showcase, mobile, blog, anding, shortcodes, html5, css3, jquery, js, gallery, slider, touch, creative" />
+  <meta name="author" content="8Guild" />
+
+  <!--Mobile Specific Meta Tag-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- All Theme Styles including Bootstrap, FontAwesome, etc. compiled from styles.scss-->
+  <link href="css/styles.min.css" rel="stylesheet" media="screen">
+
+  <!-- Page Preloading -->
+  <script src="js/vendor/page-preloading.js"></script>
+
+  <!--Modernizr / Detectizr-->
+  <script src="js/vendor/modernizr.custom.js"></script>
+  <script src="js/vendor/detectizr.min.js"></script>
+</head>
+
+<!-- Body -->
+<!-- Adding/Removing class ".parallax" is enabling/disabling background parallax effect on elements with background images and attributes data-stellar-background-ratio applied to them. Make sure you also added/removed link to stellar.js script before </body>. -->
+<!-- Adding/Removing class ".page-preloading" is enabling/disabling background smooth page transition effect and spinner. Make sure you also added/removed link to page-preloading.js script before </body> and ".page-preloader" right after <body> tag. -->
+<body class="page-preloading">
+
+  <!-- Page Pre-Loader -->
+  <div class="page-preloader">
+    <div class="spinner-wrap">
+      <div class="mdl-spinner mdl-js-spinner is-active"></div>
+    </div>
+  </div>
+
+  <!-- Page Wrapper -->
+  <div class="page-wrapper">
+
+    <!-- Navbar -->
+    <!-- Add class ".header-sticky" to make navbar stuck when it hits the top of the page. Another modifier class is: ".header-fullwidth" to stretch navbar and make it occupy 100% of the page width. The screen width at which header collapses can be controlled through the variable "$nav-collapse" in sass/variables.scss -->
+    <header class="site-header header-fullwidth header-sticky">
+      <div class="navbar">
+        <div class="inner">
+
+          <!-- Site Logo -->
+          <a href="index.html" class="site-logo">
+            <img src="img/logo.png" alt="Unison">
+          </a>
+
+          <!-- Main Navigation -->
+          <nav class="main-navigation">
+            <!-- Alignment classes: pull-right, pull-left. -->
+            <div class="toolbox pull-right">
+              <div class="inner">
+                <a href="#" class="btn btn-floating btn-primary waves-effect waves-light">Buy Theme</a>
+              </div>
+            </div><!-- .toolbox -->
+            <!-- Alignment classes: pull-right, pull-center. No class will align menu on the left. -->
+            <ul class="menu pull-right">
+              <li class="menu-item-has-children">
+                <a href="#">Home</a>
+                <ul class="sub-menu">
+                  <li><a href="index.html">Home Design Agency</a></li>
+                  <li><a href="home-architecture.html">Home Architecture</a></li>
+                  <li><a href="home-photographer.html">Home Photographer</a></li>
+                </ul>
+              </li>
+              <li><a href="portfolio.html">Portfolio</a></li>
+              <li class="current-menu-item"><a href="blog.html">Blog</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contacts.html">Contacts</a></li>
+              <li><a href="elements.html">Elements</a></li>
+            </ul><!-- .menu -->
+          </nav><!-- .main-navigation -->
+
+          <!-- Mobile Menu Toggle -->
+          <!-- Visible only when viewport is 991px and less. Can be changed via $nav-collapse variables in _variables.scss -->
+          <div class="mobile-menu-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div><!-- .mobile-menu-toggle -->
+        </div><!-- .inner -->
+      </div><!-- .navbar -->
+    </header><!-- .site-header -->
+
+    <!-- Blog Page -->
+    <section class="blog-page">
+
+      <!-- Sidebar -->
+      <span class="sidebar-toggle">
+        <i class="material-icons filter_list"></i>
+      </span>
+      <div class="sidebar-backdrop"></div>
+      <aside class="sidebar">
+        <span class="sidebar-close">
+          <i class="material-icons clear"></i>
+        </span>
+        <div class="scroll-area">
+          <div class="inner">
+
+            <!-- Search Widget -->
+            <div class="widget widget_search">
+              <form method="post" class="search-box">
+                <div class="form-input">
+                  <input type="text" id="search">
+                  <label for="search">Search posts</label>
+                  <button type="submit" class="search-icon">
+                    <i class="material-icons search"></i>
+                  </button>
+                </div>
+              </form><!-- .search-box -->
+            </div><!-- .widget.widget_search -->
+
+            <!-- Categories Widget -->
+            <div class="widget widget_categories">
+              <h3 class="widget-title">Categories</h3>
+              <ul>
+                <li><a href="#">Product Design</a></li>
+                <li><a href="#">Web Programming</a></li>
+                <li><a href="#">Travelling</a></li>
+                <li><a href="#">Motivation</a></li>
+              </ul>
+            </div><!-- .widget.widget_categories -->
+
+            <a href="blog.html" class="blog-post active">
+              <div class="blog-tile-body">
+                <div class="blog-meta">
+                  <span>12 May 2016</span>
+                  <span>/</span>
+                  <span>Travel</span>
+                </div>
+                <h3 class="blog-tile-title">Kindness And Motivation Tips Challenge Groups To Make</h3>
+                <p>I am back, after a few days of vacationing with family.</p>
+              </div>
+              <div class="blog-tile-footer">
+                <div class="blog-meta">
+                  <span><i class="material-icons question_answer"></i>12</span>
+                  <span><i class="material-icons favorite"></i>3</span>
+                  <span><i class="material-icons schedule"></i>5 min</span>
+                </div>
+              </div>
+            </a><!-- .blog-post -->
+            <a href="blog-2.html" class="blog-post">
+              <div class="blog-tile-body">
+                <div class="blog-meta">
+                  <span>17 Oct 2016</span>
+                  <span>/</span>
+                  <span>Motivation</span>
+                </div>
+                <h3 class="blog-tile-title">A Great Way To Generate All The Motivation You Need</h3>
+                <p>Ever heard of the Fuller Brush Man? You know, those legendary guys.</p>
+              </div>
+              <div class="blog-tile-footer">
+                <div class="blog-meta">
+                  <span><i class="material-icons question_answer"></i>8</span>
+                  <span><i class="material-icons favorite"></i>45</span>
+                  <span><i class="material-icons schedule"></i>10 min</span>
+                </div>
+              </div>
+            </a><!-- .blog-post -->
+            <a href="blog-3.html" class="blog-post">
+              <div class="blog-tile-body">
+                <div class="blog-meta">
+                  <span>17 Oct 2016</span>
+                  <span>/</span>
+                  <span>Construction</span>
+                </div>
+                <h3 class="blog-tile-title">Why Re Invent The Light Bulb</h3>
+              </div>
+              <div class="blog-tile-footer">
+                <div class="blog-meta">
+                  <span><i class="material-icons question_answer"></i>9</span>
+                  <span><i class="material-icons favorite"></i>17</span>
+                  <span><i class="material-icons schedule"></i>8 min</span>
+                </div>
+              </div>
+            </a><!-- .blog-post -->
+            <a href="blog-4.html" class="blog-post">
+              <div class="blog-tile-body">
+                <div class="blog-meta">
+                  <span>16 April 2016</span>
+                  <span>/</span>
+                  <span>Coffee</span>
+                </div>
+                <h3 class="blog-tile-title">Use Your Reset Button</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              </div>
+              <div class="blog-tile-footer">
+                <div class="blog-meta">
+                  <span><i class="material-icons question_answer"></i>6</span>
+                  <span><i class="material-icons favorite"></i>10</span>
+                  <span><i class="material-icons schedule"></i>13 min</span>
+                </div>
+              </div>
+            </a><!-- .blog-post -->
+          </div><!-- .inner -->
+        </div><!-- .scroll-area -->
+      </aside><!-- .sidebar -->
+
+      <!-- Blog Post -->
+      <article class="blog-post-wrap">
+
+        <!-- Post Sharing -->
+        <ul class="post-sharing-bar">
+          <li class="sharing-toggle"><a href="#"><i class="fa fa-share-alt"></i></a></li>
+          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fa fa-tumblr"></i></a></li>
+          <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+        <div class="single-post">
+          <div class="single-post-container padding-bottom">
+            <div class="blog-meta">
+              <span>12 May 2016</span>
+              <span>/</span>
+              <a href="#">Travel</a>
+            </div>
+            <h1>Kindness And Motivation Tips Challenge Groups To Make A Difference</h1>
+          </div><!-- .blog-container -->
+          <div class="fw-section padding-top-3x padding-bottom-3x" style="background-image: url(img/blog/single/01.jpg);">
+            <div class="padding-top-3x padding-bottom-3x"></div>
+            <div class="padding-top-3x padding-bottom-3x"></div>
+          </div>
+          <div class="single-post-container space-bottom-3x">
+            <p class="img-caption">
+              <i class="material-icons info"></i>
+              Federal Reserve’s Trade Weighted Broad Dollar index reached recent peak in January
+            </p>
+            <p class="space-top">At every moment you can tell if the vibration that you are sending is either a positive one or a negative one by identifying the feeling you are experiencing. At every moment you have a feeling and that feeling is causing you to emit or send off a vibration – and in the ‘vibrational’ world there are only two kinds of vibrations; positive or negative. So as you talk about what you don’t want and make negative declarative statements, in that moment you are sending out and emitting a negative vibration. Law of Attraction then matches it by giving you more of the same.</p>
+            <p>Year-over-year changes:</p>
+            <ul class="list-featured text-sm">
+              <li>Headline CPI: 1.342% YoY vs. 0.670% prior</li>
+              <li>Core CPI: 2.216% YoY vs. 2.094% prior</li>
+              <li>OER: 3.158% YoY vs. 3.144% prior</li>
+              <li>Medical care: 2.992% YoY vs. 2.567% prior</li>
+              <li>Apparel: -0.627% YoY vs. -0.837% prior</li>
+              <li>New vehicles: 0.613% YoY vs. 0.200% prior</li>
+            </ul>
+            <p>You can reset your vibration from a negative one to a positive one by simply choosing different words and different thoughts. It’s as easy as asking yourself, “So what do I want?” As I’ve said before, when you talk about what you don’t want and then talk about what you do want the words change. When the words change the vibration changes and you can only hold one vibration at a time. In other words, you are resetting your vibration. The best news of all is that the Law of Attraction doesn’t remember what vibration you were sending out five minutes ago, five days ago, five months ago or 50 years ago. And the Law of Attraction doesn’t keep score of how long you may have been sending out or emitting a vibration. It’s only checking on the vibration you are offering right now in this very moment and matching it with more of the same.</p>
+            <blockquote>
+              <p>By automating routine checks and corrections, our tools speed up production, freeing developers to grow, discover and create.</p>
+              <cite>Rachel Robinson<span>CEO 8Guild Inc.</span></cite>
+            </blockquote>
+            <p class="padding-top">Remember, the Law of Attraction always matches vibrations in the current moment (hence the expression, the point of power is in the present.) You are always at choice as to whether you want to reset your vibration or keep it as it is. If you like what you’re getting, celebrate it and in your celebration you’ll get more of the same from the Law of Attraction. If you don’t like what you are getting, use your reset button to change your vibration which will change the results you are experiencing.</p>
+            <div class="tags padding-top-2x padding-bottom">
+              <a href="#">Travel</a>
+              <a href="#">Inspiration</a>
+              <a href="#">Architecture</a>
+            </div>
+            <hr>
+            <div class="blog-meta">
+              <a href="#comments" class="scroll-to"><i class="material-icons question_answer"></i>12</a>
+              <a href="#"><i class="material-icons favorite"></i>3</a>
+            </div><!-- .blog-meta -->
+
+            <!-- Author -->
+            <div class="widget widget_author space-top-2x">
+              <div class="author-ava">
+                <img src="img/team/10.jpg" alt="Tom Smith">
+              </div>
+              <div class="author-info">
+                <h3 class="author-name">Tom Smith</h3>
+                <h4 class="author-position">Lead Designer</h4>
+                <p>Notes are very powerful. They express your thanks, encouragement, sympathy, apology, congratulations, feelings, and requests to others.</p>
+                <div class="social-bar">
+                  <a href="#" class="sb-twitter waves-effect waves-light waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Twitter">
+                    <i class="fa fa-twitter"></i>
+                  </a>
+                  <a href="#" class="sb-dribbble waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Dribbble">
+                    <i class="fa fa-dribbble"></i>
+                  </a>
+                  <a href="#" class="sb-facebook waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Facebook">
+                    <i class="fa fa-facebook"></i>
+                  </a>
+                </div>
+              </div>
+            </div><!-- .widget.widget_author -->
+          </div><!-- .single-post-container -->
+
+          <!-- Comments -->
+          <div class="comments-area padding-top-3x padding-bottom-3x" id="comments">
+            <div class="single-post-container">
+              <!-- block-title: Possible color classes ".block-title-default, .block-title-primary, .block-title-secondary, .block-title-success, .block-title-info, .block-title-warning, .block-title-danger, .block-title-light". -->
+              <h2 class="block-title block-title-secondary">
+                <i class="material-icons trending_flat"></i>
+                Responses
+              </h2><!-- .block-title -->
+
+              <!-- Comment Respond -->
+              <div class="comment-respond">
+                <form method="post">
+                  <div class="form-input form-textarea">
+                    <textarea name="cf_response" id="cf_response" rows="2"></textarea>
+                    <label for="cf_response">Write a response</label>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-9">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-input">
+                            <input type="text" name="cf_name" id="cf_name">
+                            <label for="cf_name">Name</label>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-input">
+                            <input type="email" name="cf_email" id="cf_email">
+                            <label for="cf_email">Email</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <button class="btn btn-primary btn-block btn-icon-right btn-inline waves-effect waves-light">
+                        Send
+                        <i class="material-icons send"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div><!-- .comment-respond -->
+
+              <!-- Comment -->
+              <div class="comment">
+                <div class="comment-head">
+                  <div class="comment-author-ava">
+                    <img src="img/blog/comments/01.jpg" alt="Author">
+                  </div>
+                  <div class="comment-meta">
+                    <h4 class="comment-author-name">Adam Profetto</h4>
+                    <span class="comment-date">14 hours ago</span>
+                  </div>
+                  <div class="comment-reply">
+                    <a href="#" class="btn btn-ghost btn-primary btn-icon-right waves-effect waves-light">
+                      Reply
+                      <i class="material-icons reply"></i>
+                    </a>
+                  </div>
+                </div>
+                <div class="comment-body">
+                  <p>Dream interpretation has many forms; it can be done be done for the sake of fun, hobby or can be taken up as a serious career. Psychologists and therapists are already incorporating dream interpretation into their practice. They find it as a very useful tool to gain access to hidden desires and deep-rooted personality issues of a dreamer.</p>
+                </div>
+                <!-- Comment Reply -->
+                <div class="comment depth-2">
+                  <div class="comment-head">
+                    <div class="comment-author-ava">
+                      <img src="img/blog/comments/02.jpg" alt="Author">
+                    </div>
+                    <div class="comment-meta">
+                      <h4 class="comment-author-name">Susanna Davis</h4>
+                      <span class="comment-date">10 hours ago</span>
+                    </div>
+                  </div>
+                  <div class="comment-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, voluptas laudantium tenetur repellat ab tempore explicabo sequi nisi accusamus eligendi. Praesentium eum, sapiente incidunt assumenda! Laudantium eligendi in, cupiditate nemo!</p>
+                  </div>
+                </div><!-- .comment.depth-2 -->
+              </div><!-- .comment -->
+              <!-- Comment -->
+              <div class="comment">
+                <div class="comment-head">
+                  <div class="comment-author-ava">
+                    <img src="img/blog/comments/03.jpg" alt="Author">
+                  </div>
+                  <div class="comment-meta">
+                    <h4 class="comment-author-name">Simon Brick</h4>
+                    <span class="comment-date">2 days ago</span>
+                  </div>
+                  <div class="comment-reply">
+                    <a href="#" class="btn btn-ghost btn-primary btn-icon-right waves-effect waves-light">
+                      Reply
+                      <i class="material-icons reply"></i>
+                    </a>
+                  </div>
+                </div>
+                <div class="comment-body">
+                  <p>Provident expedita ipsam placeat molestias architecto et recusandae cum corrupti asperiores odio laboriosam animi non delectus esse explicabo fugit labore, autem cupiditate.</p>
+                </div>
+              </div><!-- .comment -->
+            </div><!-- .single-post-container -->
+          </div><!-- .comments-area -->
+        </div><!-- .blog-post -->
+      </article><!-- .blog-post-wrap -->
+    </section><!-- .blog-page -->
+
+    <!-- Scroll To Top Button -->
+    <a href="#" class="scroll-to-top-btn">
+      <i class="material-icons keyboard_arrow_up"></i>
+    </a><!-- .scroll-to-top-btn -->
+
+    <!-- Footer -->
+    <footer class="footer">
+
+      <!-- Top footer -->
+      <div class="footer-top">
+        <div class="container">
+          <div class="inner">
+            <div class="column">
+              <span class="text-lg text-uppercase">Unison</span>
+              <div class="space-bottom visible-xs"></div>
+            </div>
+            <div class="column text-right">
+              <a href="mailto:example@email.com" class="btn btn-primary waves-effect waves-light">Contact us</a>
+            </div>
+          </div>
+        </div><!-- .container -->
+      </div><!-- .footer-top -->
+
+      <!-- Main footer -->
+      <div class="footer-main mobile-center">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="widget widget_links">
+                <h3 class="widget-title">Architecture / Interior Design</h3>
+                <ul>
+                  <li><a href="#">Architecture Planning</a></li>
+                  <li><a href="#">Construction Management</a></li>
+                  <li><a href="#">Renovation</a></li>
+                  <li><a href="#">Interior Sesing Planning</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="widget widget_links">
+                <h3 class="widget-title">Manufactory</h3>
+                <ul>
+                  <li><a href="#">Custom Furniture</a></li>
+                  <li><a href="#">Series Production</a></li>
+                  <li><a href="#">Interior Fit</a></li>
+                  <li><a href="#">Exhibitions / Shopfitting</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="widget widget_links">
+                <h3 class="widget-title">Property</h3>
+                <ul>
+                  <li><a href="#">Project Development</a></li>
+                  <li><a href="#">Agents</a></li>
+                  <li><a href="#">Property Management</a></li>
+                  <li><a href="#">Property Service</a></li>
+                </ul>
+              </div>
+            </div>
+          </div><!-- .row -->
+        </div><!-- .container -->
+      </div><!-- .footer-main -->
+
+      <!-- Copyright -->
+      <div class="copyright">
+        <div class="container">
+          <div class="inner">
+            <div class="column">
+              <p>Unison. 2016. Made by 8Guild with <i class="fa fa-heart"></i></p>
+            </div>
+            <div class="column text-right mobile-center">
+              <div class="social-bar">
+                <a href="#" class="sb-steam" data-toggle="tooltip" data-placement="top" title="Steam">
+                  <i class="fa fa-steam"></i>
+                </a>
+                <a href="#" class="sb-vimeo" data-toggle="tooltip" data-placement="top" title="Vimeo">
+                  <i class="fa fa-vimeo"></i>
+                </a>
+                <a href="#" class="sb-twitter" data-toggle="tooltip" data-placement="top" title="Twitter">
+                  <i class="fa fa-twitter"></i>
+                </a>
+                <a href="#" class="sb-facebook" data-toggle="tooltip" data-placement="top" title="Facebook">
+                  <i class="fa fa-facebook"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div><!-- .container -->
+      </div><!-- .copyright -->
+    </footer><!-- .footer -->
+
+  </div><!-- .page-wrapper -->
+
+  <!-- JavaScript (jQuery) libraries, plugins and custom scripts -->
+  <script src="js/vendor/jquery-2.1.4.min.js"></script>
+  <script src="js/vendor/jquery.easing.min.js"></script>
+  <script src="js/vendor/bootstrap.min.js"></script>
+  <script src="js/vendor/waves.min.js"></script>
+  <script src="js/vendor/smoothscroll.js"></script>
+  <script src="js/vendor/waypoints.min.js"></script>
+  <script src="js/vendor/velocity.min.js"></script>
+  <script src="js/vendor/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="js/scripts.js"></script>
+
+</body><!-- <body> -->
+
+</html>

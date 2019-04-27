@@ -1,0 +1,107 @@
+//
+// Footer
+// --------------------------------------------------
+
+.footer {
+  width: 100%;
+  background-color: $footer-bg-default;
+
+  // Footer logo
+  .footer-logo {
+    display: block;
+    width: 100%;
+  }
+
+  // Top footer / Copyright
+  .footer-top,
+  .copyright {
+    width: 100%;
+    padding: floor($line-height-computed * 1.8) 0;
+    border-bottom: 1px solid $hr-border;
+    .inner {
+      display: table;
+      table-layout: fixed;
+      width: 100%;
+      > .column {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+    @media #{$tablet-port} {
+      .inner > .column {
+        display: block;
+        width: 100%;
+        text-align: center !important;
+      }
+    }
+  }
+
+  // Main footer
+  .footer-main {
+    padding: floor($line-height-computed * 2) 0;
+    &.fw-table {
+      padding: 0;
+      > .inner {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        > .column {
+          display: table-cell;
+          vertical-align: top;
+          text-align: center;
+          background-color: darken($footer-bg-alt, 1.5%);
+          padding: floor($line-height-computed * 4) 15px;
+          &:first-child,
+          &:last-child {
+            background-color: transparent;
+          }
+          .widget { margin-bottom: 0; }
+          .widget_socials {
+            .social-bar a {
+              display: table;
+              margin: 0 auto 20px auto;
+            }
+          }
+        }
+      }
+      @media #{$tablet-port} {
+        .inner {
+          display: block;
+          > .column {
+            display: block;
+            width: 100%;
+            padding: floor($line-height-computed * 2) 15px;
+          }
+        }
+      }
+    }
+  }
+
+  // Copyright
+  .copyright {
+    width: 100%;
+    border-top: 1px solid $hr-border;
+    padding: $line-height-computed 0;
+    p {
+      font-size: $font-size-xs;
+      color: $gray;
+      margin-bottom: 0;
+      padding: 15px 0;
+    }
+    .fa-heart {
+      font-size: 0.9em;
+      color: #f81c55;
+    }
+    .social-bar {
+      a {
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  // Footer Alt
+  &.footer-alt {
+    background-color: $footer-bg-alt;
+  }
+}

@@ -1,0 +1,13 @@
+<md-bottom-sheet>
+	<md-subheader>
+		Contact: <span class="name">{{ mdbs.user.displayName }}</span>
+	</md-subheader>
+	<md-list>
+		<md-list-item class="j-inline" ng-repeat="item in mdbs.items" style="width: 20%">
+			<md-button ng-click="mdbs.performAction()">
+				<md-icon md-svg-icon="{{ item.icon_url }}"></md-icon>
+				{{ item.name }}
+			</md-button>
+		</md-list-item>
+	</md-list>
+</md-bottom-sheet>

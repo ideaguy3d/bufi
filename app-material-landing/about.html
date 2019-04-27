@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Unison | Material Design Portfolio Template</title>
+
+  <!--SEO Meta Tags-->
+  <meta name="description" content="Unison Material Design Portfolio Template" />
+  <meta name="keywords" content="material design, portfolio, technology, business, corporate, hosting, web, startup, app showcase, mobile, blog, anding, shortcodes, html5, css3, jquery, js, gallery, slider, touch, creative" />
+  <meta name="author" content="8Guild" />
+
+  <!--Mobile Specific Meta Tag-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- All Theme Styles including Bootstrap, FontAwesome, etc. compiled from styles.scss-->
+  <link href="css/styles.min.css" rel="stylesheet" media="screen">
+
+  <!-- Page Preloading -->
+  <script src="js/vendor/page-preloading.js"></script>
+
+  <!--Modernizr / Detectizr-->
+  <script src="js/vendor/modernizr.custom.js"></script>
+  <script src="js/vendor/detectizr.min.js"></script>
+</head>
+
+<!-- Body -->
+<!-- Adding/Removing class ".parallax" is enabling/disabling background parallax effect on elements with background images and attributes data-stellar-background-ratio applied to them. Make sure you also added/removed link to stellar.js script before </body>. -->
+<!-- Adding/Removing class ".page-preloading" is enabling/disabling background smooth page transition effect and spinner. Make sure you also added/removed link to page-preloading.js script before </body> and ".page-preloader" right after <body> tag. -->
+<body class="page-preloading">
+
+  <!-- Page Pre-Loader -->
+  <div class="page-preloader">
+    <div class="spinner-wrap">
+      <div class="mdl-spinner mdl-js-spinner is-active"></div>
+    </div>
+  </div>
+
+  <!-- Page Wrapper -->
+  <div class="page-wrapper">
+
+    <!-- Navbar -->
+    <!-- Add class ".header-sticky" to make navbar stuck when it hits the top of the page. Another modifier class is: ".header-fullwidth" to stretch navbar and make it occupy 100% of the page width. The screen width at which header collapses can be controlled through the variable "$nav-collapse" in sass/variables.scss -->
+    <header class="site-header header-fullwidth header-sticky">
+      <div class="navbar">
+        <div class="inner">
+
+          <!-- Site Logo -->
+          <a href="index.html" class="site-logo">
+            <img src="img/logo.png" alt="Unison">
+          </a>
+
+          <!-- Main Navigation -->
+          <nav class="main-navigation">
+            <!-- Alignment classes: pull-right, pull-left. -->
+            <div class="toolbox pull-right">
+              <div class="inner">
+                <a href="#" class="btn btn-floating btn-primary waves-effect waves-light">Buy Theme</a>
+              </div>
+            </div><!-- .toolbox -->
+            <!-- Alignment classes: pull-right, pull-center. No class will align menu on the left. -->
+            <ul class="menu pull-right">
+              <li class="menu-item-has-children">
+                <a href="#">Home</a>
+                <ul class="sub-menu">
+                  <li><a href="index.html">Home Design Agency</a></li>
+                  <li><a href="home-architecture.html">Home Architecture</a></li>
+                  <li><a href="home-photographer.html">Home Photographer</a></li>
+                </ul>
+              </li>
+              <li><a href="portfolio.html">Portfolio</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li class="current-menu-item"><a href="about.html">About Us</a></li>
+              <li><a href="contacts.html">Contacts</a></li>
+              <li><a href="elements.html">Elements</a></li>
+            </ul><!-- .menu -->
+          </nav><!-- .main-navigation -->
+
+          <!-- Mobile Menu Toggle -->
+          <!-- Visible only when viewport is 991px and less. Can be changed via $nav-collapse variables in _variables.scss -->
+          <div class="mobile-menu-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div><!-- .mobile-menu-toggle -->
+        </div><!-- .inner -->
+      </div><!-- .navbar -->
+    </header><!-- .site-header -->
+
+    <!-- About -->
+    <section class="container padding-top-3x">
+      <!-- block-title: Possible color classes ".block-title-default, .block-title-primary, .block-title-secondary, .block-title-success, .block-title-info, .block-title-warning, .block-title-danger, .block-title-light". -->
+      <h2 class="block-title space-top block-title-secondary">
+        <i class="material-icons trending_flat"></i>
+        We are a design partner
+      </h2><!-- .block-title -->
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="tile text-light" style="background-image: url(img/about/tile01.jpg);">
+            <h4 class="tile-subtitle">Our Super Team</h4>
+            <h3 class="tile-title">Unison Dreamteam</h3>
+            <a href="index.html" class="btn btn-light-transparent btn-default waves-effect">Explore Studio</a>
+          </div><!-- .tile -->
+        </div><!-- .col-sm-6 -->
+        <div class="col-sm-6">
+          <div class="tile" style="background-image: url(img/about/tile02.jpg);">
+            <h4 class="tile-subtitle">We Are Worldwide</h4>
+            <h3 class="tile-title">Our Offices</h3>
+            <a href="contacts.html" class="btn btn-primary waves-effect waves-light">Contact Us</a>
+          </div><!-- .tile -->
+        </div><!-- .col-sm-6 -->
+      </div><!-- .row -->
+      <div class="row padding-top">
+        <div class="col-sm-6 space-top">
+          <p>The world has become so fast paced that people don’t want to stand by reading a page of information.</p>
+          <p class="text-gray">Many conventional colleges and universities are now offering online DVD repair courses, which are the exact same as those taught on a traditional college campus, to distance learners.</p>
+        </div><!-- .col-sm-6 -->
+        <div class="col-sm-6">
+          <div class="row">
+            <div class="col-sm-4">
+              <!-- Data API:
+                   data-duration="number" The number of milliseconds it should take to finish counting.
+              -->
+              <div class="counter text-center" data-duration="2000">
+                <div class="digits">73</div>
+                <h3 class="counter-title">Clients</h3>
+                <p class="counter-description">Lorem ipsum dolor sit consectetur.</p>
+              </div><!-- .counter -->
+            </div>
+            <div class="col-sm-4">
+              <div class="counter text-center" data-duration="2000">
+                <div class="digits">405</div>
+                <h3 class="counter-title">Cups Of Tea</h3>
+                <p class="counter-description">Lorem ipsum dolor sit consectetur.</p>
+              </div><!-- .counter -->
+            </div>
+            <div class="col-sm-4">
+              <div class="counter text-center" data-duration="2000">
+                <div class="digits">8</div>
+                <h3 class="counter-title">Awards</h3>
+                <p class="counter-description">Lorem ipsum dolor sit consectetur.</p>
+              </div><!-- .counter -->
+            </div>
+          </div><!-- .row -->
+        </div><!-- .col-sm-6 -->
+      </div><!-- .row -->
+    </section><!-- .container -->
+
+    <!-- Timeline -->
+    <section class="container padding-top-2x">
+      <div class="timeline">
+        <div class="inner">
+          <div class="timeline-column">
+            <span class="date">2001</span>
+            <span class="divider"></span>
+            <div class="timeline-column-body">
+              <div class="item">
+                <h6>24 February</h6>
+                <p class="text-sm text-gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto explicabo iste consequuntur provident alias ad reprehenderit.</p>
+              </div>
+              <div class="item">
+                <h6>05 March</h6>
+                <p class="text-sm text-gray">Lorem ipsum dolor sitamo amet, consectetur sur adipisicing elit.</p>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-column">
+            <span class="date">2005</span>
+            <span class="divider"></span>
+            <div class="timeline-column-body">
+              <div class="item">
+                <h6>30 May</h6>
+                <img src="img/timeline/01.jpg" alt="Image">
+                <p class="text-sm text-gray">Architecto explicabo iste consequuntur uro provident alias ad reprehenderit.</p>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-column">
+            <span class="date">2007</span>
+            <span class="divider"></span>
+            <div class="timeline-column-body">
+              <div class="item">
+                <h6>07 June</h6>
+                <p class="text-sm text-gray">Porro odio, omnis est praesentium vel nihil.</p>
+                <p class="text-sm text-gray">Maxime assumenda eum, facere dignissimos tempore incidunt maiores amet consequuntur, harum omnis tenetur sit ex, modi in. Doloremque un.</p>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-column">
+            <span class="date">2010</span>
+            <span class="divider"></span>
+            <div class="timeline-column-body">
+              <div class="item">
+                <h6>18 August</h6>
+                <img src="img/timeline/02.jpg" alt="Image">
+                <p class="text-sm text-gray">Architecto explicabo iste consequuntur uro provident alias ad reprehenderit.</p>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-column">
+            <span class="date">2013</span>
+            <span class="divider"></span>
+            <div class="timeline-column-body">
+              <div class="item">
+                <h6>19 October</h6>
+                <p class="text-sm text-gray">Lorem ipsum dolor sitamo amet, consectetur sur adipisicing elit.</p>
+              </div>
+              <div class="item">
+                <h6>11 July</h6>
+                <p class="text-sm text-gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto explicabo iste consequuntur provident alias ad reprehenderit.</p>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-column">
+            <span class="date">2016</span>
+            <span class="divider"></span>
+            <div class="timeline-column-body">
+              <div class="item">
+                <h6>01 April</h6>
+                <img src="img/timeline/01.jpg" alt="Image">
+                <p class="text-sm text-gray">Architecto explicabo iste consequuntur uro provident alias ad reprehenderit.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- .container -->
+
+    <!-- Clients -->
+    <section class="container padding-top-3x padding-bottom-3x">
+      <!-- block-title: Possible color classes ".block-title-default, .block-title-primary, .block-title-secondary, .block-title-success, .block-title-info, .block-title-warning, .block-title-danger, .block-title-light". -->
+      <h2 class="block-title space-top block-title-secondary">
+        <i class="material-icons trending_flat"></i>
+        They trust us, and vice versa
+      </h2><!-- .block-title -->
+      <div class="row mobile-center">
+        <div class="col-sm-4">
+          <div class="client">
+            <img src="img/clients/01.svg" alt="Client">
+            <p class="text"><i class="material-icons trending_flat"></i><span>Lorem ipsum dolor sit amet, consecteturxcc adipisicing elit omnis perspiciatis.</span></p>
+          </div><!-- .client -->
+        </div><!-- .col-sm-4 -->
+        <div class="col-sm-4">
+          <div class="client">
+            <img src="img/clients/02.svg" alt="Client">
+            <p class="text"><i class="material-icons trending_flat"></i><span>Lorem ipsum dolor sit amet, consecteturxcc adipisicing elit omnis.</span></p>
+          </div><!-- .client -->
+        </div><!-- .col-sm-4 -->
+        <div class="col-sm-4">
+          <div class="client">
+            <img src="img/clients/03.svg" alt="Client">
+            <p class="text"><i class="material-icons trending_flat"></i><span>Lorem ipsum dolor sit amet, consecteturxcc adipisicing elit omnis perspiciatis.</span></p>
+          </div><!-- .client -->
+        </div><!-- .col-sm-4 -->
+      </div><!-- .row -->
+      <div class="row mobile-center">
+        <div class="col-sm-4">
+          <div class="client">
+            <img src="img/clients/04.svg" alt="Client">
+            <p class="text"><i class="material-icons trending_flat"></i><span>Lorem ipsum dolor sit amet, consecteturxcc adipisicing elit omnis.</span></p>
+          </div><!-- .client -->
+        </div><!-- .col-sm-4 -->
+        <div class="col-sm-4">
+          <div class="client">
+            <img src="img/clients/05.svg" alt="Client">
+            <p class="text"><i class="material-icons trending_flat"></i><span>Lorem ipsum dolor sit amet, consecteturxcc adipisicing elit omnis perspiciatis.</span></p>
+          </div><!-- .client -->
+        </div><!-- .col-sm-4 -->
+        <div class="col-sm-4">
+          <div class="client">
+            <img src="img/clients/06.svg" alt="Client">
+            <p class="text"><i class="material-icons trending_flat"></i><span>Lorem ipsum dolor sit amet, consecteturxcc adipisicing elit omnis.</span></p>
+          </div><!-- .client -->
+        </div><!-- .col-sm-4 -->
+      </div><!-- .row -->
+    </section><!-- .container -->
+
+    <!-- Subscription -->
+    <section class="fw-section padding-top-3x padding-bottom-3x" style="background-image: url(img/about/subscribe-bg.jpg);">
+      <span class="overlay" style="background-color: #000; opacity: .7;"></span>
+      <div class="container">
+        <h3 class="text-light">We Are Sharing Best Design News</h3>
+        <!-- Contact form -->
+        <form action="//8guild.us3.list-manage.com/subscribe/post?u=168a366a98d3248fbc35c0b67&amp;id=011a3332a0" method="post" class="subscription-form" target="_blank" novalidate autocomplete="off">
+          <div class="row">
+            <div class="col-lg-6 col-md-7">
+              <div class="row">
+                <div class="col-sm-8">
+                  <div class="form-input form-input-light">
+                    <input type="email" name="EMAIL" id="email">
+                    <label for="email">e-mail</label>
+                  </div>
+                  <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                  <div style="position: absolute; left: -5000px;">
+                    <input type="text" name="b_168a366a98d3248fbc35c0b67_011a3332a0" tabindex="-1" value="">
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                  <div style="position: absolute; left: -5000px;">
+                    <input type="text" name="b_168a366a98d3248fbc35c0b67_011a3332a0" tabindex="-1" value="">
+                  </div>
+                  <button type="submit" class="btn btn-primary btn-icon-right btn-block waves-effect waves-light">
+                    Subscribe
+                    <i class="material-icons send"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div><!-- .row -->
+        </form><!-- .ajax-form -->
+      </div><!-- .container -->
+    </section><!-- .fw-section -->
+
+    <!-- Scroll To Top Button -->
+    <a href="#" class="scroll-to-top-btn">
+      <i class="material-icons keyboard_arrow_up"></i>
+    </a><!-- .scroll-to-top-btn -->
+
+    <!-- Footer -->
+    <footer class="footer footer-alt">
+
+      <!-- Main footer -->
+      <div class="footer-main fw-table">
+        <div class="inner">
+          <div class="column">
+            <div class="widget widget_copyright">
+              <a href="index.html" class="footer-logo" style="max-width: 79px;">
+                <img src="img/footer-logo.png" alt="Unison">
+              </a>
+              <p class="copyright-text">Unison. 2016.<br> Made by 8Guild with <i class="fa fa-heart"></i></p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="widget widget_menu">
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li class="current-menu-item"><a href="about.html">About Us</a></li>
+                <li><a href="contacts.html">Contacts</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="column">
+            <div class="widget widget_socials">
+              <div class="social-bar">
+                <a href="#" class="sb-steam" data-toggle="tooltip" data-placement="top" title="Steam">
+                  <i class="fa fa-steam"></i>
+                </a>
+                <a href="#" class="sb-vimeo" data-toggle="tooltip" data-placement="top" title="Vimeo">
+                  <i class="fa fa-vimeo"></i>
+                </a>
+                <a href="#" class="sb-twitter" data-toggle="tooltip" data-placement="top" title="Twitter">
+                  <i class="fa fa-twitter"></i>
+                </a>
+                <a href="#" class="sb-facebook" data-toggle="tooltip" data-placement="top" title="Facebook">
+                  <i class="fa fa-facebook"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- .footer-main -->
+    </footer><!-- .footer -->
+
+  </div><!-- .page-wrapper -->
+
+  <!-- JavaScript (jQuery) libraries, plugins and custom scripts -->
+  <script src="js/vendor/jquery-2.1.4.min.js"></script>
+  <script src="js/vendor/jquery.easing.min.js"></script>
+  <script src="js/vendor/bootstrap.min.js"></script>
+  <script src="js/vendor/waves.min.js"></script>
+  <script src="js/vendor/smoothscroll.js"></script>
+  <script src="js/vendor/waypoints.min.js"></script>
+  <script src="js/vendor/velocity.min.js"></script>
+  <script src="js/vendor/owl.carousel.min.js"></script>
+  <script src="js/vendor/jquery.spincrement.js"></script>
+  <script src="js/scripts.js"></script>
+
+</body><!-- <body> -->
+
+</html>

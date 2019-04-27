@@ -1,0 +1,301 @@
+//
+// Blog Styles
+// --------------------------------------------------
+
+//
+// Layout
+// --------------------------------------------------
+.sidebar {
+  position: absolute;
+  z-index: 10;
+  width: $sidebar-width;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: $sidebar-bg;
+  &:before {
+    position: absolute;
+    z-index: 1;
+    display: block;
+    content: "";
+    width: $sidebar-width - 6;
+    height: 50px;
+    background-color: $sidebar-bg;
+    left: 0;
+    bottom: 0;
+  }
+  &:after {
+    position: absolute;
+    z-index: 0;
+    display: block;
+    content: "";
+    width: 6px;
+    height: 100%;
+    background-color: $gray-light;
+    right: 0;
+    top: 0;
+  }
+  > .scroll-area {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    .inner { padding: 60px 0 70px 0; }
+  }
+  .widget {
+    padding: $line-height-computed;
+    &.widget_search {
+      padding-bottom: floor($line-height-computed / 2);
+    }
+    &.widget_categories {
+      margin-bottom: 0;
+    }
+  }
+}
+.sidebar-toggle,
+.sidebar-close {
+  position: fixed;
+  z-index: 20;
+  display: none;
+  width: $post-sharing-link-size;
+  height: $post-sharing-link-size;
+  line-height: $post-sharing-link-size;
+  font-size: floor($post-sharing-link-font-size * 1.2);
+  text-align: center;
+  background-color: $scroll-top-btn-bg;
+  left: 0;
+  top: 130px;
+  cursor: pointer;
+  @include user-select(none);
+  @include box-shadow(0px 2px 3px 0px rgba(0, 0, 0, 0.4));
+  @include transition(all .3s);
+  &:hover {
+    @include box-shadow(0px 12px 18px 0px rgba(0, 0, 0, 0.26));
+  }
+}
+.sidebar-close {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: auto;
+  right: 6px;
+  cursor: pointer;
+  background: none;
+  @include box-shadow(none);
+  &:hover {
+    color: $gray-darker;
+    @include box-shadow(none);
+  }
+}
+.sidebar-backdrop {
+  display: none;
+  position: fixed;
+  z-index: $navbar-zindex + 5;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  &.visible { display: block; }
+}
+
+.blog-page {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height: 800px;
+
+  .blog-post-wrap {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding-left: $sidebar-width;
+  }
+}
+.single-post { padding-top: 90px; }
+.single-post-container {
+  width: 100%;
+  max-width: 910px;
+  padding: 0 30px;
+  margin: 0 auto;
+}
+@media #{$tablet-land} {
+  .sidebar-toggle,
+  .sidebar-close { display: block; }
+  .sidebar {
+    position: fixed;
+    z-index: $navbar-zindex + 10;
+    @include transform(translateX(-100%));
+    @include transition(all .35s ease-in-out);
+    > .scroll-area .inner {
+      padding: 20px 0 70px 0;
+    }
+    &.expanded { @include transform(translateX(0)); }
+  }
+  .single-post { padding-top: 110px; }
+  .blog-page .blog-post-wrap { padding-left: 0px; }
+  .single-post-container { padding: 0 15px; }
+}
+
+// Blog Post Meta
+.blog-meta {
+  margin-bottom: floor($line-height-computed / 2);
+  span, a {
+    font-size: $blog-meta-font-size;
+    color: $blog-meta-color;
+    text-decoration: none;
+    > i { margin: -1px 4px 0 0; }
+  }
+  a {
+    @include transition(color .25s);
+    &:hover { color: $blog-meta-hover-color; }
+  }
+}
+@media #{$mobile-land} {
+  .sidebar {
+    width: 320px;
+    &:before { width: 314px; }
+  }
+}
+
+// Tags
+.tags {
+  a {
+    display: inline-block;
+    font-size: $font-size-xs;
+    color: $gray-dark;
+    line-height: $btn-height;
+    text-decoration: none;
+    background-color: darken($gray-lighter, 2%);
+    border-radius: 3px;
+    padding: 0 20px;
+    white-space: nowrap;
+    margin: 0 5px 5px 0;
+    @include transition(color .25s);
+    &:hover { color: $gray-darker; }
+  }
+}
+
+// Post Sharing
+.post-sharing-bar {
+  display: block;
+  position: fixed;
+  z-index: 10;
+  top: 216px;
+  right: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  > li {
+    display: block;
+    margin: 0;
+    padding: 0;
+    > a {
+      display: block;
+      width: $post-sharing-link-size;
+      height: $post-sharing-link-size;
+      line-height: $post-sharing-link-size;
+      font-size: $post-sharing-link-font-size;
+      color: $post-sharing-link-color;
+      text-align: center;
+      background-color: $post-sharing-link-bg;
+      @include transition(background-color .35s);
+      &:hover {
+        color: $post-sharing-link-color;
+        background-color: $post-sharing-link-hover-bg;
+      }
+    }
+    &.sharing-toggle { display: none; }
+  }
+  @media #{$desktop} {
+    top: 130px;
+    > li {
+      @include transform(translateX(100%));
+      @include transition(all .3s $ease-in-out-expo);
+      &.sharing-toggle {
+        display: block;
+        @include transform(translateX(0));
+      }
+    }
+    &.expanded > li { @include transform(translateX(0)); }
+  }
+}
+
+//
+// Comments
+// --------------------------------------------------
+.comments-area  {
+  width: 100%;
+	background-color: $gray-lighter;
+}
+.comment {
+  background-color: #fff;
+  border-radius: $border-radius-base;
+  padding: 36px 48px;
+	margin-bottom: floor($line-height-computed * 1.8);
+	&.depth-2 {
+    background-color: $gray-lighter;
+    margin-top: floor($line-height-computed * 1.5);
+    margin-bottom: 0;
+	}
+  .comment-head {
+    display: table;
+    width: 100%;
+    margin-bottom: $line-height-computed;
+  }
+  .comment-author-ava,
+  .comment-meta,
+  .comment-reply {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .comment-author-ava {
+    width: $comment-author-ava-size;
+    > img {
+      width: 100%;
+      border-radius: 50%;
+    }
+  }
+  .comment-meta { padding-left: 25px; }
+  .comment-author-name {
+    font-size: $font-size-small;
+    font-weight: normal;
+    margin-bottom: 2px;
+  }
+  .comment-date {
+    color: $gray;
+    font-size: $font-size-xs;
+    font-weight: normal;
+  }
+  .comment-reply {
+    text-align: right;
+    .btn { margin-right: 0; }
+  }
+  .comment-body {
+    p { margin-bottom: 0; }
+	}
+  @media screen and (max-width: 600px) {
+    padding: 25px;
+    .comment-author-ava,
+    .comment-meta,
+    .comment-reply {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+    .comment-author-ava {
+      width: $comment-author-ava-size;
+      margin: 0 auto 18px auto;
+    }
+    .comment-meta { padding: 0; }
+    .comment-reply { margin-top: 12px; }
+  }
+}
+.comment-respond {
+	padding: 36px 48px;
+  background-color: #fff;
+  border-radius: $border-radius-base;
+  margin-bottom: floor($line-height-computed * 1.8);
+}

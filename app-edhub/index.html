@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js" ng-app="edhubJobsApp">
+<head>
+    <meta charset="utf-8">
+    <title>EdHub.co</title>
+
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="description" content="The Education Jobs site">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="author" content="Julius Hernandez Alvarado">
+
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+    <link rel="stylesheet" href="bower_components/angular-material-icons/angular-material-icons.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/edhub.css">
+    <!-- endbuild -->
+
+    <!-- ng-cloak -->
+    <style type="text/css">
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body ng-controller="CoreCtrl">
+
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">
+    upgrade your browser</ato improve your experience.</p>
+<![endif]-->
+
+<!--
+    Horizontal Navigation
+    ~ At the moment this won't show.
+-->
+<md-nav-bar ng-show="coreEdhubHorizontalState" md-selected-nav-item="currentNavItem"
+            nav-bar-aria-label="navigation links">
+    <md-nav-item md-nav-sref="landing" name="home">
+        EdHub.co
+    </md-nav-item>
+    <!--You can also add options for the <code>ui-sref-opts</code> attribute.-->
+    <md-nav-item md-nav-sref="post" sref-opts="{reload:true, notify:true}">
+        Post a Job
+    </md-nav-item>
+    <md-nav-item ng-if="!ccCurrentUser" md-nav-sref="signup" name="signup">
+        Signup
+    </md-nav-item>
+    <!--You can also add options for the <code>ui-sref-opts</code> attribute.-->
+    <md-nav-item ng-if="!ccCurrentUser" md-nav-sref="login" sref-opts="{reload:true, notify:true}">
+        Login
+    </md-nav-item>
+    <md-subheader ng-if="ccCurrentUser" layout="column">
+        <ng-md-icon icon="perm_identity"></ng-md-icon>
+        {{ " Welcome " + ccCurrentUser }}
+    </md-subheader>
+</md-nav-bar>
+
+
+<!----------------------------------------->
+<!---- Initial coreSidenav Menu Button ---->
+<!----------------------------------------->
+<md-button id="edhub-core-nav-menu-btn" class="md-fab md-primary"
+           aria-label="Recent Jobs" ng-click="coreEdhubToggleSideNav()">
+    <ng-md-icon icon="menu"></ng-md-icon>
+</md-button>
+
+
+<!---------------------------------->
+<!---- EdHub Auth User Info Box ---->
+<!---------------------------------->
+<div id="edhub-auth-info-container" flex-xs="70" flex-sm="50" flex-gt-sm="20">
+    <md-fab-speed-dial ng-hide="ccAuthBoxHidden" md-direction="left" md-open="ccAuthBoxIsOpen"
+                       class="md-scale md-fab-top-right"
+                       ng-class="{ 'md-hover-full': ccAuthBoxHover }"
+                       ng-mouseenter="ccAuthBoxIsOpen=true" ng-mouseleave="ccAuthBoxIsOpen=false">
+        <md-fab-trigger>
+            <md-button aria-label="menu" class="md-primary">
+                <ng-md-icon id="edhub-auth-box-avatar" icon="account_box" size="36"></ng-md-icon>
+                <p class="edhub-auth-box-username">
+                    {{rootEdhubAuthUser.email ? rootEdhubAuthUser.email : "zGuest"}}
+                </p>
+            </md-button>
+        </md-fab-trigger>
+
+        <md-fab-actions>
+            <div ng-repeat="item in ccItems">
+                <md-button aria-label="{{item.name}}" class="md-fab md-raised md-mini" ng-click="ccAuthBoxAction($event, item)">
+                    <md-tooltip md-direction="{{item.direction}}" md-visible="tooltipVisible" md-autohide="false">
+                        {{ item.name }}
+                    </md-tooltip>
+                    <ng-md-icon icon="{{item.icon}}"></ng-md-icon>
+                    <!--<md-icon md-svg-src="{{item.icon}}" aria-label="{{item.name}}"></md-icon>-->
+                </md-button>
+            </div>
+        </md-fab-actions>
+    </md-fab-speed-dial>
+</div>
+
+<div ng-cloak layout="row">
+    <!---------------------->
+    <!------ Side-nav ------>
+    <!---------------------->
+    <div ng-include="'layout/sidenav/in.sidenav.html'" layout="vertical"></div>
+
+    <!--------------------->
+    <!-- app entry point -->
+    <!---------------------->
+    <ng-view flex autoscroll="true"></ng-view>
+</div>
+
+<br>
+<!-- footer -->
+<div layout="row" layout-xs="column" style="background-color: whitesmoke;">
+    <!-- Left -->
+    <div flex layout-margin layout-padding>
+        <h1 class="text-center">
+            About EdHub.co
+        </h1>
+        <p>
+            Coded & Designed by <a href="https://linkedin.com/in/juliusalvarado" target="_blank">
+            Julius Hernandez Alvarado</a>,
+            <i>last update 4/27/2018</i>
+        </p>
+        <p>I'm still developing this app so I'll be adding more features and functionality.</p>
+        <p>Or <a href="mailto:javascript.uiux@gmail.com">hire me</a>
+            <small>(javascript.uiux@gmail.com)</small>
+            and I'll build your project instead
+        </p>
+    </div>
+    <!-- Middle -->
+    <div flex layout-margin layout-padding>
+        <h1>Edhub.co Progress</h1>
+        <ol>
+            <li>Code initial UI and basic Authentication, week of 5/10/2018
+                <ng-md-icon icon="check"></ng-md-icon>
+            </li>
+            <li>Implement Backend API to CRUD data, week of 5/17/2018
+                <ng-md-icon icon="error"></ng-md-icon>
+            </li>
+            <li>Integrate 3rd party API's
+                <ng-md-icon icon="error"></ng-md-icon>
+            </li>
+            <li>Write Unit & e2e tests, <i>near future</i>
+                <ng-md-icon icon="error"></ng-md-icon>
+            </li>
+            <li>Make UI even prettier for awesome UX, <i>near future</i>
+                <ng-md-icon icon="error"></ng-md-icon>
+            </li>
+        </ol>
+    </div>
+    <!-- Right -->
+    <div flex layout-margin layout-padding>
+        <h1>Julius3D.com sites</h1>
+        <p><a href="http://portfoliohack2016.julius3d.com/" target="_blank">
+            Front End Software Engineer</a></p>
+            <p><a href="http://portfoliohack2015.julius3d.com/" target="_blank">
+                Software Generalist</a></p>
+        <p><a href="http://material.julius3d.com" target="_blank">
+            Material Design Specialist</a></p>
+        <p><a href="https://juliusproto.firebaseapp.com" target="_blank">
+            Ninja Publishers Review</a></p>
+        <p><a href="https://tedfeed.firebaseapp.com" target="_blank">
+            Ted Talks Video Feed</a>
+            <small> (still in development)</small>
+        </p>
+        <p><a href="http://julius3d.com" target="_blank">
+            Julius3D.com</a></p>
+    </div>
+</div>
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+<script>
+    !function (A, n, g, u, l, a, r) {
+        A.GoogleAnalyticsObject = l, A[l] = A[l] || function () {
+            (A[l].q = A[l].q || []).push(arguments)
+        }, A[l].l = +new Date, a = n.createElement(g),
+            r = n.getElementsByTagName(g)[0], a.src = u, r.parentNode.insertBefore(a, r)
+    }(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-XXXXX-X');
+    ga('send', 'pageview');
+</script>
+
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/firebase/firebase.js"></script>
+<script src="bower_components/angularfire/dist/angularfire.js"></script>
+<script src="bower_components/angular-md5/angular-md5.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-aria/angular-aria.js"></script>
+<script src="bower_components/angular-messages/angular-messages.js"></script>
+<script src="bower_components/angular-material/angular-material.js"></script>
+<script src="bower_components/angular-material-icons/angular-material-icons.min.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/ngSmoothScroll/lib/angular-smooth-scroll.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="app.js"></script>
+<!-- services -->
+<script src="services/ser.auth.js"></script>
+<script src="services/ser.job.post.js"></script>
+<!-- controllers -->
+<script src="core.ctrl.js"></script>
+<script src="states/landing/ctrl.landing.js"></script>
+<script src="states/auth/ctrl.auth.js"></script>
+<script src="states/post/ctrl.post.js"></script>
+<script src="states/lab916/ctrl.lab916.js"></script>
+<script src="states/apply/ctrl.job.apply.js"></script>
+<script src="states/apply/ctrl.org.apply.js"></script>
+<!-- prac stuff -->
+<script src="ui-prac/ctrl.ui.prac.js"></script>
+<!-- endbuild -->
+
+</body>
+</html>

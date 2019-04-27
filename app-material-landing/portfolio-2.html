@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Unison | Material Design Portfolio Template</title>
+
+  <!--SEO Meta Tags-->
+  <meta name="description" content="Unison Material Design Portfolio Template" />
+  <meta name="keywords" content="material design, portfolio, technology, business, corporate, hosting, web, startup, app showcase, mobile, blog, anding, shortcodes, html5, css3, jquery, js, gallery, slider, touch, creative" />
+  <meta name="author" content="8Guild" />
+
+  <!--Mobile Specific Meta Tag-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- All Theme Styles including Bootstrap, FontAwesome, etc. compiled from styles.scss-->
+  <link href="css/styles.min.css" rel="stylesheet" media="screen">
+
+  <!-- Page Preloading -->
+  <script src="js/vendor/page-preloading.js"></script>
+
+  <!--Modernizr / Detectizr-->
+  <script src="js/vendor/modernizr.custom.js"></script>
+  <script src="js/vendor/detectizr.min.js"></script>
+</head>
+
+<!-- Body -->
+<!-- Adding/Removing class ".parallax" is enabling/disabling background parallax effect on elements with background images and attributes data-stellar-background-ratio applied to them. Make sure you also added/removed link to stellar.js script before </body>. -->
+<!-- Adding/Removing class ".page-preloading" is enabling/disabling background smooth page transition effect and spinner. Make sure you also added/removed link to page-preloading.js script before </body> and ".page-preloader" right after <body> tag. -->
+<body class="parallax page-preloading">
+
+  <!-- Page Pre-Loader -->
+  <div class="page-preloader">
+    <div class="spinner-wrap">
+      <div class="mdl-spinner mdl-js-spinner is-active"></div>
+    </div>
+  </div>
+
+  <!-- Page Wrapper -->
+  <div class="page-wrapper">
+
+    <!-- Navbar -->
+    <!-- Add class ".header-sticky" to make navbar stuck when it hits the top of the page. Another modifier class is: ".header-fullwidth" to stretch navbar and make it occupy 100% of the page width. The screen width at which header collapses can be controlled through the variable "$nav-collapse" in sass/variables.scss -->
+    <header class="site-header header-fullwidth header-sticky">
+      <div class="navbar">
+        <div class="inner">
+
+          <!-- Site Logo -->
+          <a href="index.html" class="site-logo">
+            <img src="img/logo.png" alt="Unison">
+          </a>
+
+          <!-- Main Navigation -->
+          <nav class="main-navigation">
+            <!-- Alignment classes: pull-right, pull-left. -->
+            <div class="toolbox pull-right">
+              <div class="inner">
+                <a href="#" class="btn btn-floating btn-primary waves-effect waves-light">Buy Theme</a>
+              </div>
+            </div><!-- .toolbox -->
+            <!-- Alignment classes: pull-right, pull-center. No class will align menu on the left. -->
+            <ul class="menu pull-right">
+              <li class="menu-item-has-children">
+                <a href="#">Home</a>
+                <ul class="sub-menu">
+                  <li><a href="index.html">Home Design Agency</a></li>
+                  <li><a href="home-architecture.html">Home Architecture</a></li>
+                  <li><a href="home-photographer.html">Home Photographer</a></li>
+                </ul>
+              </li>
+              <li class="current-menu-item"><a href="portfolio.html">Portfolio</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contacts.html">Contacts</a></li>
+              <li><a href="elements.html">Elements</a></li>
+            </ul><!-- .menu -->
+          </nav><!-- .main-navigation -->
+
+          <!-- Mobile Menu Toggle -->
+          <!-- Visible only when viewport is 991px and less. Can be changed via $nav-collapse variables in _variables.scss -->
+          <div class="mobile-menu-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div><!-- .mobile-menu-toggle -->
+        </div><!-- .inner -->
+      </div><!-- .navbar -->
+    </header><!-- .site-header -->
+
+    <!-- Portfolio Page -->
+    <div class="portfolio-page">
+
+      <!-- Sidebar -->
+      <span class="sidebar-toggle">
+        <i class="material-icons filter_list"></i>
+      </span>
+      <div class="sidebar-backdrop"></div>
+      <aside class="sidebar">
+        <span class="sidebar-close">
+          <i class="material-icons clear"></i>
+        </span>
+        <div class="scroll-area">
+          <a href="portfolio-2.html" class="portfolio-post active text-light waves-effect waves-light">
+            <span>Architecture</span>
+            <img src="img/portfolio/single/th01.jpg" alt="Thumbnail"/>
+          </a><!-- .sportfolio-post -->
+          <a href="portfolio-3.html" class="portfolio-post text-light waves-effect waves-light">
+            <span>Vacuum Cleaner</span>
+            <img src="img/portfolio/single/th02.jpg" alt="Thumbnail"/>
+          </a><!-- .sportfolio-post -->
+          <a href="portfolio.html" class="portfolio-post text-light waves-effect waves-light">
+            <span>Virtual Reality</span>
+            <img src="img/portfolio/single/th03.jpg" alt="Thumbnail"/>
+          </a><!-- .sportfolio-post -->
+          <a href="portfolio-4.html" class="portfolio-post text-light waves-effect waves-light">
+            <span>PS-HX500</span>
+            <img src="img/portfolio/single/th04.jpg" alt="Thumbnail"/>
+          </a><!-- .sportfolio-post -->
+        </div><!-- .scroll-area -->
+      </aside><!-- .sidebar -->
+
+      <!-- Portfolio Post -->
+      <div class="portfolio-post-wrap">
+
+        <!-- Post Sharing -->
+        <ul class="post-sharing-bar">
+          <li class="sharing-toggle"><a href="#"><i class="fa fa-share-alt"></i></a></li>
+          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fa fa-tumblr"></i></a></li>
+          <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+        </ul><!-- .post-sharing-bar -->
+
+        <div class="single-portfolio">
+          <div class="fw-setcion padding-top-3x padding-bottom-3x" style="background-image: url(img/portfolio/single/arch01.jpg);" data-stellar-background-ratio="0.65">
+            <div class="single-post-container padding-top-3x padding-bottom-3x">
+              <h1 class="text-light text-huge text-extrathin padding-top-2x">Architectual Project Design Showcase</h1>
+              <div class="portfolio-meta padding-bottom-2x">
+                <span>Case Study</span>
+                <span>/</span>
+                <a href="#">Architecture</a>
+              </div>
+            </div>
+          </div><!-- .fw-setcion -->
+          <div class="single-post-container padding-top-3x padding-bottom-3x">
+            <div class="row padding-top padding-bottom">
+              <div class="col-lg-5 padding-bottom">
+                <p>Quas cupiditate mollitia iure quia expedita rerum dolore doloribus deserunt. Sunt distinctio dolore ab molestiae tenetur.</p>
+                <p class="text-gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit harum recusandae odio earum est, animi iure dolorem itaque repellendus sed culpa dignissimos sunt possimus tempora quam. Veniam laborum possimus explicabo.</p>
+              </div>
+              <div class="col-lg-7">
+                <!-- Data API:
+                  data-loop="true/false" enable/disable looping
+                  data-autoplay="true/false" enable/disable carousel autoplay
+                  data-interval="3000" autoplay interval timeout in miliseconds
+                  data-autoheight="true/false" to enable/disable autoheight
+                  Simply add necessary data attribute to the ".image-carousel" with appropriate value to adjust carousel functionality.
+                 -->
+                <div class="image-carousel">
+                  <div class="inner">
+                    <img src="img/portfolio/single/arch03.jpg" alt="Image">
+                    <img src="img/portfolio/single/arch02.jpg" alt="Image">
+                    <img src="img/portfolio/single/arch04.jpg" alt="Image">
+                  </div>
+                </div><!-- .image-carousel -->
+              </div>
+            </div>
+          </div><!-- .single-post-container -->
+        </div><!-- .single-portfolio -->
+      </div><!-- .portfolio-post-wrap -->
+    </div><!-- .portfolio-page -->
+
+    <!-- Scroll To Top Button -->
+    <a href="#" class="scroll-to-top-btn">
+      <i class="material-icons keyboard_arrow_up"></i>
+    </a><!-- .scroll-to-top-btn -->
+
+    <!-- Footer -->
+    <footer class="footer footer-alt">
+
+      <!-- Main footer -->
+      <div class="footer-main mobile-center">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="widget widget_links">
+                <h3 class="widget-title">My Blog</h3>
+                <ul>
+                  <li><a href="#">Product Design Planning</a></li>
+                  <li><a href="#">Smart Art Direction</a></li>
+                  <li><a href="#">Design Innovations</a></li>
+                  <li><a href="#">New Trends in Design</a></li>
+                </ul>
+              </div><!-- .widget.widget_links -->
+            </div><!-- .col-sm-4 -->
+            <div class="col-sm-8">
+              <div class="widget widget_instagram space-bottom-none">
+                <h3 class="widget-title">Follow My Instagram</h3>
+                <div class="insta-row">
+                  <div class="item">
+                    <a href="#" class="waves-effect waves-light"><img src="img/instagram/01.jpg" alt="Instagram"></a>
+                  </div>
+                  <div class="item">
+                    <a href="#" class="waves-effect waves-light"><img src="img/instagram/02.jpg" alt="Instagram"></a>
+                  </div>
+                  <div class="item">
+                    <a href="#" class="waves-effect waves-light"><img src="img/instagram/03.jpg" alt="Instagram"></a>
+                  </div>
+                  <div class="item">
+                    <a href="#" class="waves-effect waves-light"><img src="img/instagram/04.jpg" alt="Instagram"></a>
+                  </div>
+                  <div class="item">
+                    <a href="#" class="waves-effect waves-light"><img src="img/instagram/05.jpg" alt="Instagram"></a>
+                  </div>
+                </div>
+              </div><!-- .widget.widget_instagram -->
+            </div><!-- .col-sm-8 -->
+          </div><!-- .row -->
+        </div><!-- .container -->
+      </div><!-- .footer-main -->
+
+      <!-- Copyright -->
+      <div class="copyright">
+        <div class="container">
+          <div class="inner">
+            <div class="column">
+              <p>Unison. 2016. Made by 8Guild with <i class="fa fa-heart"></i></p>
+            </div>
+            <div class="column text-right mobile-center">
+              <div class="social-bar">
+                <a href="#" class="sb-steam" data-toggle="tooltip" data-placement="top" title="Steam">
+                  <i class="fa fa-steam"></i>
+                </a>
+                <a href="#" class="sb-vimeo" data-toggle="tooltip" data-placement="top" title="Vimeo">
+                  <i class="fa fa-vimeo"></i>
+                </a>
+                <a href="#" class="sb-twitter" data-toggle="tooltip" data-placement="top" title="Twitter">
+                  <i class="fa fa-twitter"></i>
+                </a>
+                <a href="#" class="sb-facebook" data-toggle="tooltip" data-placement="top" title="Facebook">
+                  <i class="fa fa-facebook"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div><!-- .container -->
+      </div><!-- .copyright -->
+    </footer><!-- .footer -->
+
+  </div><!-- .page-wrapper -->
+
+  <!-- JavaScript (jQuery) libraries, plugins and custom scripts -->
+  <script src="js/vendor/jquery-2.1.4.min.js"></script>
+  <script src="js/vendor/jquery.easing.min.js"></script>
+  <script src="js/vendor/bootstrap.min.js"></script>
+  <script src="js/vendor/waves.min.js"></script>
+  <script src="js/vendor/smoothscroll.js"></script>
+  <script src="js/vendor/jquery.stellar.min.js"></script>
+  <script src="js/vendor/waypoints.min.js"></script>
+  <script src="js/vendor/velocity.min.js"></script>
+  <script src="js/vendor/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="js/vendor/owl.carousel.min.js"></script>
+  <script src="js/scripts.js"></script>
+
+</body><!-- <body> -->
+
+</html>
